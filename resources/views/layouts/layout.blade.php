@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
-    <title>Prisma LPPM V2 | @yield('title') </title>
+    <title>SiBanjir | @yield('title') </title>
     <link rel="shortcut icon" href="{{ asset('assets/images/logo.png') }}">
 
     <!-- Bootstrap -->

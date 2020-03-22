@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tahun extends Model
 {
-    //
+    protected $fillable = [
+        'tahun'
+    ];
 }

@@ -53,7 +53,7 @@
                                     <th>No</th>
                                     <th>Nama Parameter</th>
                                     <th>Sub Parameter</th>
-                                    <th>Nilai Probabilitas</th>
+                                    <th>Skor</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
