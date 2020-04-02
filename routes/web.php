@@ -74,3 +74,11 @@ Route::group(['prefix' => 'admin/kecamatan'], function(){
 Route::group(['prefix' => 'admin/kelurahan'], function(){
     Route::get('/', 'Admin\KelurahanController@index')->name('admin.kelurahan');
 });
+
+Route::group(['prefix' => 'admin/koordinat_kelurahan'], function(){
+    Route::get('/', 'Admin\KoordinatKelurahanController@index')->name('admin.koordinat');
+    Route::post('/', 'Admin\KoordinatKelurahanController@post')->name('admin.koordinat.add');
+    Route::get('/{id}/edit', 'Admin\KoordinatKelurahanController@edit')->name('admin.koordinat.edit');
+    Route::patch('/', 'Admin\KoordinatKelurahanController@update')->name('admin.koordinat.update');
+    Route::delete('/', 'Admin\KoordinatKelurahanController@delete')->name('admin.koordinat.delete');
+});

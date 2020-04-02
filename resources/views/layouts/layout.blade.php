@@ -59,7 +59,7 @@
     <div class="container body">
       <div class="main_container" style="background:#013C62;">
         @if (Auth::check())
-            <div class="col-md-3 left_col menu_fixed" style="background: #013C62 !important; overflow:auto !important; scrollbar-width: none !important;">
+            <div class="col-md-3 left_col menu_fixed" style="background: #013C62 !important;  scrollbar-width: none !important;">
             @else
             <div class="col-md-3 left_col menu_fixed" style="background: #013C62 !important;">
         @endif
