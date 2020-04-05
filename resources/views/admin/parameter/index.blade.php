@@ -52,7 +52,6 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Parameter</th>
-                                    <th>Keterangan</th>
                                     <th>Bobot Parameter</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -65,13 +64,6 @@
                                     <tr>
                                         <td> {{ $no++ }} </td>
                                         <td> {{ $parameter->nm_parameter }} </td>
-                                        <td>
-                                            @if ($parameter->keterangan_parameter != null)
-                                                {{ $parameter->keterangan_parameter }}
-                                                @else
-                                                <a style="color:red"><i>-</i></a>
-                                            @endif
-                                        </td>
                                         <td> {{ $parameter->bobot_parameter }} </td>
                                         <td>
                                             <a onclick="ubahBobot({{ $parameter->id }})" class="btn btn-info btn-sm" style="color:white; cursor:pointer;"><i class="fa fa-edit"></i></a>
