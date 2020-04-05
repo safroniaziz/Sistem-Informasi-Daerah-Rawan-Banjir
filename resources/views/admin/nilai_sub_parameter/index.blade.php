@@ -122,22 +122,35 @@
                                         {{ csrf_field() }} {{ method_field("POST") }}
                                         <input type="hidden" name="id" >
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Pilih Kelurahan</label>
-                                            <select name="kelurahan_id" class="form-control" required id="">
-                                                <option value="" selected disabled>-- pilih kelurahan --</option>
-                                                @foreach ($kelurahans as $kelurahan)
-                                                    <option value="{{ $kelurahan->id }}"> {{ $kelurahan->nm_kelurahan }} </option>
+                                            <label for="exampleInputEmail1">Pilih Kecamatan</label>
+                                            <select name="kecamatan_id" id="kecamatan_id" class="form-control" required id="">
+                                                <option value="" selected disabled>-- pilih kecamatan --</option>
+                                                @foreach ($kecamatans as $kecamatan)
+                                                    <option value="{{ $kecamatan->id }}"> {{ $kecamatan->nm_kecamatan }} </option>
                                                 @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Pilih Kelurahan</label>
+                                            <select name="kelurahan_id" id="kelurahan_id" class="form-control" required id="">
+                                                <option value="" selected disabled>-- pilih kelurahan --</option>
                                             </select>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Pilih Parameter</label>
-                                            <select name="sub_parameter_id" class="form-control" required id="">
+                                            <select name="parameter_id" id="parameter_id" class="form-control" required id="">
                                                 <option value="" selected disabled>-- pilih parameter --</option>
-                                                @foreach ($sub_parameters as $parameter)
-                                                    <option value="{{ $parameter->id }}"> {{ $parameter->nm_sub_parameter }} </option>
+                                                @foreach ($parameters as $parameter)
+                                                    <option value="{{ $parameter->id }}"> {{ $parameter->nm_parameter }} </option>
                                                 @endforeach
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Pilih Sub Parameter</label>
+                                            <select name="sub_parameter_id" id="sub_parameter_id" class="form-control" required id="">
+                                                <option value="" selected disabled>-- pilih sub parameter --</option>
                                             </select>
                                         </div>
 
@@ -190,22 +203,35 @@
                                             {{ csrf_field() }} {{ method_field("PATCH") }}
                                             <input type="hidden" name="id" id="id">
                                             <div class="form-group">
+                                                <label for="exampleInputEmail1">Pilih Kecamatan</label>
+                                                <select name="kecamatan_id" id="kecamatan_id" class="form-control" required id="">
+                                                    <option value="" selected disabled>-- pilih kecamatan --</option>
+                                                    @foreach ($kecamatans as $kecamatan)
+                                                        <option value="{{ $kecamatan->id }}"> {{ $kecamatan->nm_kecamatan }} </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
                                                 <label for="exampleInputEmail1">Pilih Kelurahan</label>
                                                 <select name="kelurahan_id" id="kelurahan_id" class="form-control" required id="">
                                                     <option value="" selected disabled>-- pilih kelurahan --</option>
-                                                    @foreach ($kelurahans as $kelurahan)
-                                                        <option value="{{ $kelurahan->id }}"> {{ $kelurahan->nm_kelurahan }} </option>
-                                                    @endforeach
                                                 </select>
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Pilih Parameter</label>
-                                                <select name="sub_parameter_id" id="sub_parameter_id" class="form-control" required id="">
+                                                <select name="parameter_id" id="parameter_id2" class="form-control" required id="">
                                                     <option value="" selected disabled>-- pilih parameter --</option>
-                                                    @foreach ($sub_parameters as $parameter)
+                                                    @foreach ($parameters as $parameter)
                                                         <option value="{{ $parameter->id }}"> {{ $parameter->nm_parameter }} </option>
                                                     @endforeach
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Pilih Sub Parameter</label>
+                                                <select name="sub_parameter_id" id="sub_parameter_id2" class="form-control" required id="">
+                                                    <option value="" selected disabled>-- pilih sub parameter --</option>
                                                 </select>
                                             </div>
 
@@ -285,6 +311,102 @@
             $('#modalhapus').modal('show');
             $('#nilai_id').val(id);
         }
+
+        $(document).ready(function(){
+            $(document).on('change','#kecamatan_id',function(){
+                // alert('berhasil');
+                var kecamatan_id = $(this).val();
+                var div = $(this).parent().parent();
+                var op=" ";
+                $.ajax({
+                type :'get',
+                url: "{{ url('admin/nilai_sub_parameter/cari_kelurahan') }}",
+                data:{'kecamatan_id':kecamatan_id},
+                    success:function(data){
+                        op+='<option value="0" selected disabled>-- pilih kelurahan --</option>';
+                        for(var i=0; i<data.length;i++){
+                            op+='<option value="'+data[i].id+'">'+data[i].nm_kelurahan+'</option>';
+                        }
+                        div.find('#kelurahan_id').html(" ");
+                        div.find('#kelurahan_id').append(op);
+                    },
+                        error:function(){
+                    }
+                });
+            })
+        });
+
+        $(document).ready(function(){
+            $(document).on('change','#kecamatan_id2',function(){
+                // alert('berhasil');
+                var kecamatan_id = $(this).val();
+                var div = $(this).parent().parent();
+                var op=" ";
+                $.ajax({
+                type :'get',
+                url: "{{ url('admin/nilai_sub_parameter/cari_kelurahan') }}",
+                data:{'kecamatan_id':kecamatan_id},
+                    success:function(data){
+                        op+='<option value="0" selected disabled>-- pilih kelurahan --</option>';
+                        for(var i=0; i<data.length;i++){
+                            op+='<option value="'+data[i].id+'">'+data[i].nm_kelurahan+'</option>';
+                        }
+                        div.find('#kelurahan_id2').html(" ");
+                        div.find('#kelurahan_id2').append(op);
+                    },
+                        error:function(){
+                    }
+                });
+            })
+        });
+
+        $(document).ready(function(){
+            $(document).on('change','#parameter_id',function(){
+                // alert('berhasil');
+                var parameter_id = $(this).val();
+                var div = $(this).parent().parent();
+                var op=" ";
+                $.ajax({
+                type :'get',
+                url: "{{ url('admin/nilai_sub_parameter/cari_sub_parameter') }}",
+                data:{'parameter_id':parameter_id},
+                    success:function(data){
+                        op+='<option value="0" selected disabled>-- pilih sub parameter --</option>';
+                        for(var i=0; i<data.length;i++){
+                            op+='<option value="'+data[i].id+'">'+data[i].nm_sub_parameter+'</option>';
+                        }
+                        div.find('#sub_parameter_id').html(" ");
+                        div.find('#sub_parameter_id').append(op);
+                    },
+                        error:function(){
+                    }
+                });
+            })
+        });
+
+        $(document).ready(function(){
+            $(document).on('change','#parameter_id2',function(){
+                // alert('berhasil');
+                var parameter_id = $(this).val();
+                var div = $(this).parent().parent();
+                var op=" ";
+                $.ajax({
+                type :'get',
+                url: "{{ url('admin/nilai_sub_parameter/cari_sub_parameter') }}",
+                data:{'parameter_id':parameter_id},
+                    success:function(data){
+                        op+='<option value="0" selected disabled>-- pilih sub_parameter --</option>';
+                        for(var i=0; i<data.length;i++){
+                            op+='<option value="'+data[i].id+'">'+data[i].nm_sub_parameter+'</option>';
+                        }
+                        div.find('#sub_parameter_id2').html(" ");
+                        div.find('#sub_parameter_id2').append(op);
+                    },
+                        error:function(){
+                    }
+                });
+            })
+        });
 
     </script>
 @endpush

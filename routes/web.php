@@ -51,6 +51,7 @@ Route::group(['prefix' => 'admin/nilai_parameter'], function(){
     Route::get('/{id}/edit', 'Admin\NilaiParameterController@edit')->name('admin.nilai_parameter.edit');
     Route::patch('/', 'Admin\NilaiParameterController@update')->name('admin.nilai_parameter.update');
     Route::delete('/', 'Admin\NilaiParameterController@delete')->name('admin.nilai_parameter.delete');
+    Route::get('/cari_kelurahan', 'Admin\NilaiParameterController@cariKelurahan')->name('admin.nilai_parameter.cari_kelurahan');
 });
 
 Route::group(['prefix' => 'admin/nilai_sub_parameter'], function(){
@@ -59,6 +60,8 @@ Route::group(['prefix' => 'admin/nilai_sub_parameter'], function(){
     Route::get('/{id}/edit', 'Admin\NilaiSubParameterController@edit')->name('admin.nilai_sub_parameter.edit');
     Route::patch('/', 'Admin\NilaiSubParameterController@update')->name('admin.nilai_sub_parameter.update');
     Route::delete('/', 'Admin\NilaiSubParameterController@delete')->name('admin.nilai_sub_parameter.delete');
+    Route::get('/cari_kelurahan', 'Admin\NilaiSubParameterController@cariKelurahan')->name('admin.nilai_sub_parameter.cari_kelurahan');
+    Route::get('/cari_sub_parameter', 'Admin\NilaiSubParameterController@cariSubParameter')->name('admin.nilai_sub_parameter.cari_sub_parameter');
 });
 
 Route::group(['prefix' => 'admin/sub_parameter'], function(){

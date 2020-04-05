@@ -112,7 +112,7 @@
                             <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header modal-header-danger">
-                                    <p style="font-size:15px;" class="modal-title" id="exampleModalLabel"><i class="fa fa-user"></i>&nbsp;Form Ubah Bobot Parameter</p>
+                                    <p style="font-size:15px;" class="modal-title" id="exampleModalLabel"><i class="fa fa-user"></i>&nbsp;Form Tambah Bobot Parameter</p>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -122,12 +122,18 @@
                                         {{ csrf_field() }} {{ method_field("POST") }}
                                         <input type="hidden" name="id" >
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Pilih Kelurahan</label>
-                                            <select name="kelurahan_id" class="form-control" required id="">
-                                                <option value="" selected disabled>-- pilih kelurahan --</option>
-                                                @foreach ($kelurahans as $kelurahan)
-                                                    <option value="{{ $kelurahan->id }}"> {{ $kelurahan->nm_kelurahan }} </option>
+                                            <label for="exampleInputEmail1">Pilih Kecamatan</label>
+                                            <select name="kecamatan_id" id="kecamatan_id" class="form-control" required id="">
+                                                <option value="" selected disabled>-- pilih kecamatan --</option>
+                                                @foreach ($kecamatans as $kecamatan)
+                                                    <option value="{{ $kecamatan->id }}"> {{ $kecamatan->nm_kecamatan }} </option>
                                                 @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Pilih Kelurahan</label>
+                                            <select name="kelurahan_id" id="kelurahan_id" class="form-control" required id="">
+                                                <option value="" selected disabled>-- pilih kelurahan --</option>
                                             </select>
                                         </div>
 
@@ -190,12 +196,18 @@
                                             {{ csrf_field() }} {{ method_field("PATCH") }}
                                             <input type="hidden" name="id" id="id">
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Pilih Kelurahan</label>
-                                                <select name="kelurahan_id" id="kelurahan_id" class="form-control" required id="">
-                                                    <option value="" selected disabled>-- pilih kelurahan --</option>
-                                                    @foreach ($kelurahans as $kelurahan)
-                                                        <option value="{{ $kelurahan->id }}"> {{ $kelurahan->nm_kelurahan }} </option>
+                                                <label for="exampleInputEmail1">Pilih Kecamatan</label>
+                                                <select name="kecamatan_id" id="kecamatan_id2" class="form-control" required id="">
+                                                    <option value="" selected disabled>-- pilih kecamatan --</option>
+                                                    @foreach ($kecamatans as $kecamatan)
+                                                        <option value="{{ $kecamatan->id }}"> {{ $kecamatan->nm_kecamatan }} </option>
                                                     @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Pilih Kelurahan</label>
+                                                <select name="kelurahan_id" id="kelurahan_id2" class="form-control" required id="">
+                                                    <option value="" selected disabled>-- pilih kelurahan --</option>
                                                 </select>
                                             </div>
 
@@ -285,6 +297,54 @@
             $('#modalhapus').modal('show');
             $('#nilai_id').val(id);
         }
+
+        $(document).ready(function(){
+            $(document).on('change','#kecamatan_id',function(){
+                // alert('berhasil');
+                var kecamatan_id = $(this).val();
+                var div = $(this).parent().parent();
+                var op=" ";
+                $.ajax({
+                type :'get',
+                url: "{{ url('admin/nilai_parameter/cari_kelurahan') }}",
+                data:{'kecamatan_id':kecamatan_id},
+                    success:function(data){
+                        op+='<option value="0" selected disabled>-- pilih kelurahan --</option>';
+                        for(var i=0; i<data.length;i++){
+                            op+='<option value="'+data[i].id+'">'+data[i].nm_kelurahan+'</option>';
+                        }
+                        div.find('#kelurahan_id').html(" ");
+                        div.find('#kelurahan_id').append(op);
+                    },
+                        error:function(){
+                    }
+                });
+            })
+        });
+
+        $(document).ready(function(){
+            $(document).on('change','#kecamatan_id2',function(){
+                // alert('berhasil');
+                var kecamatan_id = $(this).val();
+                var div = $(this).parent().parent();
+                var op=" ";
+                $.ajax({
+                type :'get',
+                url: "{{ url('admin/nilai_parameter/cari_kelurahan') }}",
+                data:{'kecamatan_id':kecamatan_id},
+                    success:function(data){
+                        op+='<option value="0" selected disabled>-- pilih kelurahan --</option>';
+                        for(var i=0; i<data.length;i++){
+                            op+='<option value="'+data[i].id+'">'+data[i].nm_kelurahan+'</option>';
+                        }
+                        div.find('#kelurahan_id2').html(" ");
+                        div.find('#kelurahan_id2').append(op);
+                    },
+                        error:function(){
+                    }
+                });
+            })
+        });
 
     </script>
 @endpush

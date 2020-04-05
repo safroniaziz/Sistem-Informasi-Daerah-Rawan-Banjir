@@ -7,6 +7,8 @@ use App\DataNilaiSubParameter;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Kelurahan;
+use App\Kecamatan;
+use App\Parameter;
 use App\SubParameter;
 use App\Tahun;
 
@@ -20,11 +22,12 @@ class NilaiSubParameterController extends Controller
                                     ->join('bulans','bulans.id','data_nilai_sub_parameters.bulan_id')
                                     ->select('data_nilai_sub_parameters.id','nm_kelurahan','nm_kecamatan','nm_sub_parameter','tahun','nm_bulan','nilai')
                                     ->get();
-        $sub_parameters = SubParameter::all();
+        $parameters = Parameter::all();
         $kelurahans = Kelurahan::all();
+        $kecamatans = Kecamatan::all();
         $tahuns = Tahun::all();
         $bulans = Bulan::all();
-        return view('admin/nilai_sub_parameter.index', compact('nilais','sub_parameters','kelurahans','tahuns','bulans'));
+        return view('admin/nilai_sub_parameter.index', compact('nilais','parameters','kelurahans','kecamatans','tahuns','bulans'));
     }
 
     public function post(Request $request){
@@ -60,5 +63,15 @@ class NilaiSubParameterController extends Controller
         $bulan->delete();
 
         return redirect()->route('admin.nilai_sub_parameter')->with(['success'    =>  'Data  Nilai Parameter Berhasil Dihapus !!']);
+    }
+
+    public function cariKelurahan(Request $request){
+        $kelurahans = Kelurahan::where('kecamatan_id',$request->kecamatan_id)->get();
+        return $kelurahans;
+    }
+
+    public function cariSubParameter(Request $request){
+        $kelurahans = SubParameter::where('parameter_id',$request->parameter_id)->get();
+        return $kelurahans;
     }
 }

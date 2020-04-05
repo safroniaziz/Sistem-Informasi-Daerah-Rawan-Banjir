@@ -6,6 +6,7 @@ use App\Bulan;
 use App\DataNilaiParameter;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Kecamatan;
 use App\Kelurahan;
 use App\Parameter;
 use App\Tahun;
@@ -20,11 +21,12 @@ class NilaiParameterController extends Controller
                                     ->join('bulans','bulans.id','data_nilai_parameters.bulan_id')
                                     ->select('data_nilai_parameters.id','nm_kelurahan','nm_kecamatan','nm_parameter','tahun','nm_bulan','nilai')
                                     ->get();
-        $parameters = Parameter::all();
+        $parameters = Parameter::where('nm_parameter','like','%'.'pemukiman'.'%')->get();
+        $kecamatans = Kecamatan::all();
         $kelurahans = Kelurahan::all();
         $tahuns = Tahun::all();
         $bulans = Bulan::all();
-        return view('admin/nilai_parameter.index', compact('nilais','parameters','kelurahans','tahuns','bulans'));
+        return view('admin/nilai_parameter.index', compact('nilais','parameters','kelurahans','kecamatans','tahuns','bulans'));
     }
 
     public function post(Request $request){
@@ -60,5 +62,10 @@ class NilaiParameterController extends Controller
         $bulan->delete();
 
         return redirect()->route('admin.nilai_parameter')->with(['success'    =>  'Data  Nilai Parameter Berhasil Dihapus !!']);
+    }
+
+    public function cariKelurahan(Request $request){
+        $kelurahans = Kelurahan::where('kecamatan_id',$request->kecamatan_id)->get();
+        return $kelurahans;
     }
 }
