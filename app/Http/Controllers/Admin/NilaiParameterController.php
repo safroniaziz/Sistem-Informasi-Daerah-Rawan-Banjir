@@ -65,7 +65,8 @@ class NilaiParameterController extends Controller
     }
 
     public function cariKelurahan(Request $request){
-        $kelurahans = Kelurahan::where('kecamatan_id',$request->kecamatan_id)->get();
+        $sudah = DataNilaiParameter::select('kelurahan_id')->pluck('kelurahan_id');
+        $kelurahans = Kelurahan::where('kecamatan_id',$request->kecamatan_id)->whereNotIn('id',$sudah)->get();
         return $kelurahans;
     }
 }

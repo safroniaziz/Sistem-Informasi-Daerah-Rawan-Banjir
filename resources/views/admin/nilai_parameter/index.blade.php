@@ -117,8 +117,9 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <div class="modal-body">
-                                    <form action="{{ route('admin.nilai_parameter.post') }} " method="POST">
+                                <form action="{{ route('admin.nilai_parameter.post') }} " method="POST">
+
+                                    <div class="modal-body">
                                         {{ csrf_field() }} {{ method_field("POST") }}
                                         <input type="hidden" name="id" >
                                         <div class="form-group">
@@ -171,12 +172,13 @@
                                             <label for="exampleInputEmail1">Nilai Parameter</label>
                                             <input type="text" class="form-control" name="nilai" required>
                                         </div>
-                                    </form>
-                                </div>
+                                    </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger btn-sm"  style="color:white;" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Batalkan</button>
                                     <button type="submit" class="btn btn-primary btn-sm" style="color:white"><i class="fa fa-check-circle"></i>&nbsp; Simpan</button>
                                 </div>
+                                </form>
+
                             </div>
                             </div>
                         </div>

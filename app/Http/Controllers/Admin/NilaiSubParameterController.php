@@ -18,9 +18,10 @@ class NilaiSubParameterController extends Controller
         $nilais = DataNilaiSubParameter::join('kelurahans','kelurahans.id','data_nilai_sub_parameters.kelurahan_id')
                                     ->join('kecamatans','kecamatans.id','kelurahans.kecamatan_id')
                                     ->join('sub_parameters','sub_parameters.id','data_nilai_sub_parameters.sub_parameter_id')
+                                    ->join('parameters','parameters.id','sub_parameters.parameter_id')
                                     ->join('tahuns','tahuns.id','data_nilai_sub_parameters.tahun_id')
                                     ->join('bulans','bulans.id','data_nilai_sub_parameters.bulan_id')
-                                    ->select('data_nilai_sub_parameters.id','nm_kelurahan','nm_kecamatan','nm_sub_parameter','tahun','nm_bulan','nilai')
+                                    ->select('data_nilai_sub_parameters.id','nm_kelurahan','nm_kecamatan','nm_parameter','nm_sub_parameter','tahun','nm_bulan','nilai')
                                     ->get();
         $parameters = Parameter::where('nm_parameter','!=','pemukiman')->get();
         $kelurahans = Kelurahan::all();
@@ -31,15 +32,21 @@ class NilaiSubParameterController extends Controller
     }
 
     public function post(Request $request){
-        $bulan = new DataNilaiSubParameter();
-        $bulan->kelurahan_id = $request->kelurahan_id;
-        $bulan->sub_parameter_id = $request->sub_parameter_id;
-        $bulan->tahun_id = $request->tahun_id;
-        $bulan->bulan_id = $request->bulan_id;
-        $bulan->nilai = $request->nilai;
-        $bulan->save();
+        $sudah = DataNilaiSubParameter::select('id')->where('kelurahan_id',$request->kelurahan_id)->where('sub_parameter_id',$request->sub_parameter_id)->get();
+        if(count($sudah) < 1){
+            $bulan = new DataNilaiSubParameter();
+            $bulan->kelurahan_id = $request->kelurahan_id;
+            $bulan->sub_parameter_id = $request->sub_parameter_id;
+            $bulan->tahun_id = $request->tahun_id;
+            $bulan->bulan_id = $request->bulan_id;
+            $bulan->nilai = $request->nilai;
+            $bulan->save();
 
-        return redirect()->route('admin.nilai_sub_parameter')->with(['success'    =>  'Data Nilai Parameter Berhasil Ditambah !!']);
+            return redirect()->route('admin.nilai_sub_parameter')->with(['success'    =>  'Data Nilai Parameter Berhasil Ditambah !!']);
+        }
+        else{
+            return redirect()->route('admin.nilai_sub_parameter')->with(['error'    =>  'Kelurahan dan Sub Parameter yang anda pilih sudah ditambahkan !!']);
+        }
     }
 
     public function edit($id){

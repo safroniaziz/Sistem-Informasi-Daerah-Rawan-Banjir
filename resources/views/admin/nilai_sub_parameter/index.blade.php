@@ -38,6 +38,11 @@
                                 <button type="button" class="close" data-dismiss="alert">×</button>
                                 <strong><i class="fa fa-info-circle"></i>&nbsp;Berhasil: </strong> {{ $message }}
                             </div>
+                            @elseif ($message = Session::get('error'))
+                            <div class="alert alert-danger alert-block" id="berhasil">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong><i class="fa fa-close"></i>&nbsp;Gagal: </strong> {{ $message }}
+                            </div>
                             @else
                             <div class="alert alert-success alert-block" id="keterangan">
                                 <button type="button" class="close" data-dismiss="alert">×</button>
@@ -54,6 +59,7 @@
                                     <th>No</th>
                                     <th>Kecamatan</th>
                                     <th>Kelurahan</th>
+                                    <th>Parameter</th>
                                     <th>Sub Parameter</th>
                                     <th>Tahun</th>
                                     <th>Bulan</th>
@@ -70,6 +76,7 @@
                                         <td> {{ $no++ }} </td>
                                         <td> {{ $nilai->nm_kecamatan }} </td>
                                         <td> {{ $nilai->nm_kelurahan }} </td>
+                                        <td> {{ $nilai->nm_parameter }} </td>
                                         <td> {{ $nilai->nm_sub_parameter }} </td>
                                         <td> {{ $nilai->tahun }} </td>
                                         <td> {{ $nilai->nm_bulan }} </td>
@@ -117,8 +124,8 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <div class="modal-body">
-                                    <form action="{{ route('admin.nilai_sub_parameter.post') }} " method="POST">
+                                <form action="{{ route('admin.nilai_sub_parameter.post') }} " method="POST">
+                                    <div class="modal-body">
                                         {{ csrf_field() }} {{ method_field("POST") }}
                                         <input type="hidden" name="id" >
                                         <div class="form-group">
@@ -178,12 +185,13 @@
                                             <label for="exampleInputEmail1">Nilai Parameter</label>
                                             <input type="text" class="form-control" name="nilai" required>
                                         </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger btn-sm"  style="color:white;" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Batalkan</button>
-                                    <button type="submit" class="btn btn-primary btn-sm" style="color:white"><i class="fa fa-check-circle"></i>&nbsp; Simpan</button>
-                                </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger btn-sm"  style="color:white;" data-dismiss="modal"><i class="fa fa-close"></i>&nbsp;Batalkan</button>
+                                        <button type="submit" class="btn btn-primary btn-sm" style="color:white"><i class="fa fa-check-circle"></i>&nbsp; Simpan</button>
+                                    </div>
+                                </form>
+
                             </div>
                             </div>
                         </div>
