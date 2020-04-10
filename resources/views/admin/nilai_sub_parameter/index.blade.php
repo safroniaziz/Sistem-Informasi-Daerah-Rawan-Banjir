@@ -183,7 +183,7 @@
 
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Nilai Parameter</label>
-                                            <input type="text" class="form-control" name="nilai" required>
+                                            <input type="number" class="form-control" name="nilai" required>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -265,7 +265,7 @@
 
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Nilai Parameter</label>
-                                                <input type="text" class="form-control" name="nilai" id="nilai" required>
+                                                <input type="number" class="form-control" name="nilai" id="nilai" required>
                                             </div>
                                     </div>
                                     <div class="modal-footer">
