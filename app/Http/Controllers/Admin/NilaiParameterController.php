@@ -30,17 +30,27 @@ class NilaiParameterController extends Controller
     }
 
     public function post(Request $request){
-        $bulan = new DataNilaiParameter();
-        $bulan->kelurahan_id = $request->kelurahan_id;
-        $bulan->parameter_id = $request->parameter_id;
-        $bulan->tahun_id = $request->tahun_id;
-        $bulan->bulan_id = $request->bulan_id;
-        $bulan->nilai = $request->nilai;
-        $bulan->save();
+        $sudah = DataNilaiParameter::select('id')
+                ->where('kelurahan_id',$request->kelurahan_id)
+                ->where('parameter_id',$request->parameter_id)
+                ->where('tahun_id',$request->tahun_id)
+                ->where('bulan_id',$request->bulan_id)
+                ->get();
+        if(count($sudah) < 1){
+            $bulan = new DataNilaiParameter();
+            $bulan->kelurahan_id = $request->kelurahan_id;
+            $bulan->parameter_id = $request->parameter_id;
+            $bulan->tahun_id = $request->tahun_id;
+            $bulan->bulan_id = $request->bulan_id;
+            $bulan->nilai = $request->nilai;
+            $bulan->save();
 
-        return redirect()->route('admin.nilai_parameter')->with(['success'    =>  'Data Nilai Parameter Berhasil Ditambah !!']);
+            return redirect()->route('admin.nilai_parameter')->with(['success'    =>  'Data Nilai Parameter Berhasil Ditambah !!']);
+        }
+        else{
+            return redirect()->route('admin.nilai_parameter')->with(['error'    =>  'Kecamatan, Kelurahan dan Sub Parameter Tahun, dan Bulan yang anda pilih sudah ditambahkan !!']);
+        }
     }
-
     public function edit($id){
         $nilai = DataNilaiParameter::find($id);
         return $nilai;
@@ -65,8 +75,8 @@ class NilaiParameterController extends Controller
     }
 
     public function cariKelurahan(Request $request){
-        $sudah = DataNilaiParameter::select('kelurahan_id')->pluck('kelurahan_id');
-        $kelurahans = Kelurahan::where('kecamatan_id',$request->kecamatan_id)->whereNotIn('id',$sudah)->get();
+        // $sudah = DataNilaiParameter::select('kelurahan_id')->pluck('kelurahan_id');
+        $kelurahans = Kelurahan::where('kecamatan_id',$request->kecamatan_id)->get();
         return $kelurahans;
     }
 }

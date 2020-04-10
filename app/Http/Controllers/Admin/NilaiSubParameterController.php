@@ -32,7 +32,12 @@ class NilaiSubParameterController extends Controller
     }
 
     public function post(Request $request){
-        $sudah = DataNilaiSubParameter::select('id')->where('kelurahan_id',$request->kelurahan_id)->where('sub_parameter_id',$request->sub_parameter_id)->get();
+        $sudah = DataNilaiSubParameter::select('id')
+                ->where('kelurahan_id',$request->kelurahan_id)
+                ->where('sub_parameter_id',$request->sub_parameter_id)
+                ->where('tahun_id',$request->tahun_id)
+                ->where('bulan_id',$request->bulan_id)
+                ->get();
         if(count($sudah) < 1){
             $bulan = new DataNilaiSubParameter();
             $bulan->kelurahan_id = $request->kelurahan_id;
@@ -45,7 +50,7 @@ class NilaiSubParameterController extends Controller
             return redirect()->route('admin.nilai_sub_parameter')->with(['success'    =>  'Data Nilai Parameter Berhasil Ditambah !!']);
         }
         else{
-            return redirect()->route('admin.nilai_sub_parameter')->with(['error'    =>  'Kelurahan dan Sub Parameter yang anda pilih sudah ditambahkan !!']);
+            return redirect()->route('admin.nilai_sub_parameter')->with(['error'    =>  'Kecamatan, Kelurahan dan Sub Parameter Tahun, dan Bulan yang anda pilih sudah ditambahkan !!']);
         }
     }
 

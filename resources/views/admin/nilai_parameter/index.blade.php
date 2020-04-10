@@ -38,6 +38,11 @@
                                 <button type="button" class="close" data-dismiss="alert">×</button>
                                 <strong><i class="fa fa-info-circle"></i>&nbsp;Berhasil: </strong> {{ $message }}
                             </div>
+                            @elseif ($message = Session::get('error'))
+                            <div class="alert alert-danger alert-block" id="berhasil">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong><i class="fa fa-close"></i>&nbsp;Gagal: </strong> {{ $message }}
+                            </div>
                             @else
                             <div class="alert alert-success alert-block" id="keterangan">
                                 <button type="button" class="close" data-dismiss="alert">×</button>
