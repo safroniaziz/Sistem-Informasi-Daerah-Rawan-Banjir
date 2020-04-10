@@ -21,7 +21,6 @@ class NilaiSubParameterController extends Controller
                                     ->join('tahuns','tahuns.id','data_nilai_sub_parameters.tahun_id')
                                     ->join('bulans','bulans.id','data_nilai_sub_parameters.bulan_id')
                                     ->select('data_nilai_sub_parameters.id','nm_kelurahan','nm_kecamatan','nm_sub_parameter','tahun','nm_bulan','nilai')
-                                    ->where('')
                                     ->get();
         $parameters = Parameter::where('nm_parameter','!=','pemukiman')->get();
         $kelurahans = Kelurahan::all();
