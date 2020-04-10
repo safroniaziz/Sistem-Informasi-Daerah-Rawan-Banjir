@@ -101,12 +101,12 @@
 
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Latitude :</label>
-                                            <input type="number" class="form-control" required name="latitude">
+                                            <input type="text" class="form-control" required name="latitude">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Longitude :</label>
-                                            <input type="number" class="form-control" required name="longitude">
+                                            <input type="text" class="form-control" required name="longitude">
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -145,12 +145,12 @@
 
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Latitude :</label>
-                                        <input type="number" class="form-control" id="latitude" required name="latitude">
+                                        <input type="text" class="form-control" id="latitude" required name="latitude">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Longitude :</label>
-                                        <input type="number" class="form-control" id="longitude" required name="longitude">
+                                        <input type="text" class="form-control" id="longitude" required name="longitude">
                                     </div>
                                 </div>
                                 <div class="modal-footer">
