@@ -87,11 +87,7 @@
                                         <td> {{ $topografi->m40_skor }} </td>
                                         <td> {{ $topografi->jumlah }} </td>
                                         <td>
-                                            @if ($topografi->nilai_fuzzy == null)
-                                                <a style="color:red"><i>nilai fuzzy belum di generate</i></a>
-                                                @else
-                                                {{ $topografi->nilai_fuzzy }}
-                                            @endif
+                                            {{ $topografi->nilai_fuzzy }}
                                         </td>
                                     </tr>
                                 @endforeach

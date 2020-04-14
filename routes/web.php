@@ -105,4 +105,5 @@ Route::group(['prefix' => 'admin/fuzzy_topografi'], function(){
 Route::group(['prefix' => 'admin/fuzzy_bantaran'], function(){
     Route::get('/', 'BantaranController@index')->name('admin.fuzzy.bantaran');
     Route::get('/rumus_bantaran', 'BantaranController@rumusBantaran')->name('admin.fuzzy.rumus_bantaran');
+    Route::get('/rumus_fuzzy_bantaran', 'BantaranController@rumusFuzzyBantaran')->name('admin.fuzzy.rumus_fuzzy_bantaran');
 });

@@ -40,6 +40,10 @@ class BantaranController extends Controller
             ]);
         }
 
+        return redirect()->route('admin.fuzzy.bantaran')->with(['success'  =>  'Nilai Parameter Bantaran Sungai Berhasil Di Generate !!']);
+    }
+
+    public function rumusFuzzyBantaran(){
         $jumlah = Bantaran::select('id','m10_skor','m20_skor','m30_skor','m40_skor')->get();
         $array = [];
         foreach ($jumlah as $jumlah) {
@@ -48,14 +52,14 @@ class BantaranController extends Controller
             ]);
         }
 
-        $max = Bantaran::max('jumlah');
-        $data = Bantaran::select('id','jumlah')->get();
+        $data = Bantaran::select('id','tahun','bulan','jumlah')->get();
         for ($i=0; $i <count($data) ; $i++) {
+            $nilai = Bantaran::where('tahun',$data[$i]->tahun)->where('bulan',$data[$i]->bulan)->max('jumlah');
             Bantaran::where('id',$data[$i]->id)->update([
-                'nilai_fuzzy'   => number_format(($data[$i]->jumlah - 0) / ($max-0),9),
+                'nilai_fuzzy'   => number_format(($data[$i]->jumlah - 0) / ($nilai-0),9),
             ]);
         }
 
-        return redirect()->route('admin.fuzzy.bantaran')->with(['success'  =>  'Nilai Parameter & Nilai Fuzzy Bantaran Sungai Berhasil Di Generate !!']);
+        return redirect()->route('admin.fuzzy.bantaran')->with(['success'  =>  'Nilai Fuzzy Bantaran Sungai Berhasil Di Generate !!']);
     }
 }

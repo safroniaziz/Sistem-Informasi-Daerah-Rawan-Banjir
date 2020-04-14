@@ -47,7 +47,8 @@
                     </div>
                     {{ csrf_field() }} {{ method_field('PATCH') }}
                     <div class="col-md-12" style="margin-bottom:5px;">
-                        <a href="{{ route('admin.fuzzy.rumus_bantaran') }}" class="btn btn-primary btn-sm"><i class="fa fa-refresh"></i>&nbsp; Generate Nilai Fuzzy</a>
+                        <a href="{{ route('admin.fuzzy.rumus_bantaran') }}" class="btn btn-primary btn-sm"><i class="fa fa-refresh"></i>&nbsp; Generate Skor</a>
+                        <a href="{{ route('admin.fuzzy.rumus_fuzzy_bantaran') }}" class="btn btn-primary btn-sm"><i class="fa fa-refresh"></i>&nbsp; Generate Nilai Fuzzy</a>
                     </div>
                     <div class="col-md-12 table-responsive">
                         <table class="table table-striped table-bordered" id="table" style="width:100%; ">
