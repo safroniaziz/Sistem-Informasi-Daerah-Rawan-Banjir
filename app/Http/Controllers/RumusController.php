@@ -15,12 +15,11 @@ class RumusController extends Controller
     }
 
     public function rumusPemukiman(){
-        $pemukimen = Pemukiman::join('kelurahans','kelurahans.id','pemukimen.kelurahan_id')->select('kelurahans.id','nm_kelurahan','persentase')->get();
-        $nilai = Pemukiman::max('persentase');
-        $array = [];
+        $pemukimen = Pemukiman::join('kelurahans','kelurahans.id','pemukimen.kelurahan_id')->select('pemukimen.id','tahun','bulan','nm_kelurahan','persentase')->get();
         for ($i=0; $i <count($pemukimen) ; $i++) {
-            $fuzzy = Pemukiman::where('kelurahan_id',$pemukimen[$i]->id)->update([
-                'nilai_fuzzy'   =>  number_format(($pemukimen[$i]->persentase - 0) / ($nilai-0),6),
+            $nilai = Pemukiman::where('tahun',$pemukimen[$i]->tahun)->where('bulan',$pemukimen[$i]->bulan)->max('persentase');
+            $fuzzy = Pemukiman::where('id',$pemukimen[$i]->id)->update([
+                'nilai_fuzzy'   =>  number_format(($pemukimen[$i]->persentase - 0) / ($nilai-0),9),
             ]);
         }
         return redirect()->route('admin.fuzzy.pemukiman')->with(['success'  =>  'Nilai Fuzzy Pemukiman Berhasil Di Generate Ulang !!']);

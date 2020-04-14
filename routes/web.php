@@ -90,3 +90,19 @@ Route::group(['prefix' => 'admin/fuzzy_pemukiman'], function(){
     Route::get('/', 'RumusController@index')->name('admin.fuzzy.pemukiman');
     Route::get('/rumus_pemukiman', 'RumusController@rumusPemukiman')->name('admin.fuzzy.rumus_pemukiman');
 });
+
+Route::group(['prefix' => 'admin/fuzzy_curah_hujan'], function(){
+    Route::get('/', 'CurahHujanController@index')->name('admin.fuzzy.curah_hujan');
+    Route::get('/rumus_curah_hujan', 'CurahHujanController@rumusCurahHujan')->name('admin.fuzzy.rumus_curah_hujan');
+    Route::get('/rumus_fuzzy_curah_hujan', 'CurahHujanController@rumusFuzzyCurahHujan')->name('admin.fuzzy.rumus_fuzzy_curah_hujan');
+});
+
+Route::group(['prefix' => 'admin/fuzzy_topografi'], function(){
+    Route::get('/', 'TopografiController@index')->name('admin.fuzzy.topografi');
+    Route::get('/rumus_topografi', 'TopografiController@rumusTopografi')->name('admin.fuzzy.rumus_topografi');
+});
+
+Route::group(['prefix' => 'admin/fuzzy_bantaran'], function(){
+    Route::get('/', 'BantaranController@index')->name('admin.fuzzy.bantaran');
+    Route::get('/rumus_bantaran', 'BantaranController@rumusBantaran')->name('admin.fuzzy.rumus_bantaran');
+});
