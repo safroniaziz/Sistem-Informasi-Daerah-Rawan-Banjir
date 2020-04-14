@@ -44,10 +44,6 @@
                                 <strong><i class="fa fa-info-circle"></i>&nbsp;Perhatian: </strong> Berikut semua data fuzzy pemukiman yang tersedia !!
                             </div>
                         @endif
-                        <div class="alert alert-success alert-block" id="sudah">
-                            <button type="button" class="close" data-dismiss="alert">×</button>
-                            <strong><i class="fa fa-info-circle"></i>&nbsp;Perhatian: </strong> Berikut semua data fuzzy pemukiman yang tersedia !!
-                        </div>
                     </div>
                     {{ csrf_field() }} {{ method_field('PATCH') }}
                     <div class="col-md-12" style="margin-bottom:5px;">
