@@ -31,6 +31,13 @@
     </ul>
 </li>
 
+<li><a><i class="fa fa-calculator"></i>Nilai Fuzzy  <span class="fa fa-chevron-down"></span></a>
+    <ul class="nav child_menu">
+        <li><a href=" {{ route('admin.fuzzy.pemukiman') }} ">Fuzzy Pemukiman</a></li>
+    </ul>
+</li>
+
+
 <li style="padding-left:2px;">
     <a class="dropdown-item" href="{{ route('logout') }}"
         onclick="event.preventDefault();
