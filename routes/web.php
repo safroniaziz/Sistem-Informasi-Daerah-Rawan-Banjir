@@ -85,3 +85,8 @@ Route::group(['prefix' => 'admin/koordinat_kelurahan'], function(){
     Route::patch('/', 'Admin\KoordinatKelurahanController@update')->name('admin.koordinat.update');
     Route::delete('/', 'Admin\KoordinatKelurahanController@delete')->name('admin.koordinat.delete');
 });
+
+Route::group(['prefix' => 'admin/fuzzy_pemukiman'], function(){
+    Route::get('/', 'RumusController@index')->name('admin.fuzzy.pemukiman');
+    Route::get('/rumus_pemukiman', 'RumusController@rumusPemukiman')->name('admin.fuzzy.rumus_pemukiman');
+});

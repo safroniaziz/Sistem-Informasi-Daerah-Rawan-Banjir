@@ -182,7 +182,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Nilai Parameter</label>
+                                            <label for="exampleInputEmail1">Nilai Sub Parameter</label>
                                             <input type="number" class="form-control" name="nilai" required>
                                         </div>
                                     </div>
