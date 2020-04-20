@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title', 'Fuzzy Bantaran Sungai')
+@section('title', 'Fuzzy Matriks Kandidat')
 @section('login_as', 'Administrator')
 @section('user-login')
     @if (Auth::check())
@@ -26,7 +26,7 @@
 @section('content')
     <section class="panel" style="margin-bottom:20px;">
         <header class="panel-heading" style="color: #ffffff;background-color: #074071;border-color: #fff000;border-image: none;border-style: solid solid none;border-width: 4px 0px 0;border-radius: 0;font-size: 14px;font-weight: 700;padding: 15px;">
-            <i class="fa fa-home"></i>&nbsp;Nilai Fuzzy Bantaran Sungai
+            <i class="fa fa-home"></i>&nbsp;Nilai Fuzzy Matriks Kandidat
         </header>
         <div class="panel-body" style="border-top: 1px solid #eee; padding:15px; background:white;">
             <form action="" method="POST">
@@ -41,55 +41,41 @@
                             @else
                             <div class="alert alert-success alert-block" id="keterangan">
                                 <button type="button" class="close" data-dismiss="alert">×</button>
-                                <strong><i class="fa fa-info-circle"></i>&nbsp;Perhatian: </strong> Berikut semua data fuzzy Bantaran Sungai yang tersedia !!
+                                <strong><i class="fa fa-info-circle"></i>&nbsp;Perhatian: </strong> Berikut semua data fuzzy Matriks Kandidat yang tersedia !!
                             </div>
                         @endif
                     </div>
                     {{ csrf_field() }} {{ method_field('PATCH') }}
-                    <div class="col-md-12" style="margin-bottom:5px;">
-                        <a href="{{ route('admin.fuzzy.rumus_bantaran') }}" class="btn btn-primary btn-sm"><i class="fa fa-refresh"></i>&nbsp; Generate Skor</a>
-                        <a href="{{ route('admin.fuzzy.rumus_fuzzy_bantaran') }}" class="btn btn-primary btn-sm"><i class="fa fa-refresh"></i>&nbsp; Generate Nilai Fuzzy</a>
-                    </div>
                     <div class="col-md-12 table-responsive">
                         <table class="table table-striped table-bordered" id="table" style="width:100%; ">
                             <thead>
                                 <tr>
                                     <th>No</th>
+                                    <th>Tahun</th>
+                                    <th>Bulan</th>
                                     <th>Kecamatan</th>
                                     <th>Kelurahan</th>
-                                    <th>10 m</th>
-                                    <th>20 m</th>
-                                    <th>30 m</th>
-                                    <th>40 m</th>
-                                    <th>Skor 10 m</th>
-                                    <th>Skor 20 m</th>
-                                    <th>Skor 30 m</th>
-                                    <th>Skor 40 m</th>
-                                    <th>Jumlah</th>
-                                    <th>Nilai Fuzzy</th>
+                                    <th>C1 (Pemukiman)</th>
+                                    <th>C2 (Curah Hujan)</th>
+                                    <th>C3 (Topografi)</th>
+                                    <th>C4 (Bantaran Sungai)</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @php
                                     $no=1;
                                 @endphp
-                                @foreach ($bantarans as $bantaran)
+                                @foreach ($kandidats as $kandidat)
                                     <tr>
                                         <td> {{ $no++ }} </td>
-                                        <td> {{ $bantaran->nm_kecamatan }} </td>
-                                        <td> {{ $bantaran->nm_kelurahan }} </td>
-                                        <td> {{ $bantaran->m10 }} </td>
-                                        <td> {{ $bantaran->m20 }} </td>
-                                        <td> {{ $bantaran->m30 }} </td>
-                                        <td> {{ $bantaran->m40 }} </td>
-                                        <td> {{ $bantaran->m10_skor }} </td>
-                                        <td> {{ $bantaran->m20_skor }} </td>
-                                        <td> {{ $bantaran->m30_skor }} </td>
-                                        <td> {{ $bantaran->m40_skor }} </td>
-                                        <td> {{ $bantaran->jumlah }} </td>
-                                        <td>
-                                            {{ $bantaran->nilai_fuzzy }}
-                                        </td>
+                                        <td> {{ $kandidat->tahun }} </td>
+                                        <td> {{ $kandidat->bulan }} </td>
+                                        <td> {{ $kandidat->nm_kecamatan }} </td>
+                                        <td> {{ $kandidat->nm_kelurahan }} </td>
+                                        <td> {{ $kandidat->c1 }} </td>
+                                        <td> {{ $kandidat->c2 }} </td>
+                                        <td> {{ $kandidat->c3 }} </td>
+                                        <td> {{ $kandidat->c4 }} </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -108,22 +94,5 @@
                 "ordering": false,
             });
         } );
-
-        function ubahBobot(id){
-            $.ajax({
-                url: "{{ url('admin/parameter') }}"+'/'+ id + "/edit",
-                type: "GET",
-                dataType: "JSON",
-                success: function(data){
-                    $('#modalubah').modal('show');
-                    $('#id').val(data.id);
-                    $('#bobot_parameter').val(data.bobot_parameter);
-                },
-                error:function(){
-                    alert("Nothing Data");
-                }
-            });
-        }
-
     </script>
 @endpush

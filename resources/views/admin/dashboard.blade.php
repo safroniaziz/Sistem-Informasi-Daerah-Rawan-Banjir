@@ -51,16 +51,16 @@
                 </header>
                 <div class="panel-body" style="border-top: 1px solid #eee; padding:15px; background:white;">
                     <div class="row">
-                        {{-- @section('charts')
+                        @section('charts')
                                 chart.data = [
-                                    @foreach ($totals as $total)
+                                    @foreach ($data as $data)
                                         {
-                                            "country": "{{ $total['fakultas'] }}",
-                                            "visits": {{ $total['total'] }}
+                                            "country": "{{ $data['clustering'] }}",
+                                            "visits": {{ $data['jumlah'] }}
                                         },
                                     @endforeach
                                 ];
-                        @endsection --}}
+                        @endsection
                         <div id="chartdiv"></div>
                     </div>
                 </div>

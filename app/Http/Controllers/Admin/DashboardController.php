@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\LinearFuzzy;
+use DB;
 
 class DashboardController extends Controller
 {
@@ -13,6 +15,7 @@ class DashboardController extends Controller
     }
 
     public function index(){
-        return view('admin/dashboard');
+        $data = LinearFuzzy::select(DB::raw('COUNT(clustering) as jumlah'),'clustering')->groupBy('clustering')->get();
+        return view('admin/dashboard', compact('data'));
     }
 }

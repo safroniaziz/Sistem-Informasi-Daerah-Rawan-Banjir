@@ -59,9 +59,9 @@
     <div class="container body">
       <div class="main_container" style="background:#013C62;">
         @if (Auth::check())
-            <div class="col-md-3 left_col menu_fixed" style="background: #013C62 !important;  scrollbar-width: none !important;">
+            <div class="col-md-3 left_col" style="background: #013C62 !important;  scrollbar-width: none !important;">
             @else
-            <div class="col-md-3 left_col menu_fixed" style="background: #013C62 !important;">
+            <div class="col-md-3 left_col" style="background: #013C62 !important;">
         @endif
         <div class="left_col scroll-view" style="background: #013C62 !important;">
             <div class="navbar nav_title" style="border-bottom: 1px white solid;; margin:0; padding-bottom:5px 0px !important; background:#013C62;">
