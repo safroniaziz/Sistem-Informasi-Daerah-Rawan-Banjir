@@ -15,7 +15,12 @@ class DashboardController extends Controller
     }
 
     public function index(){
+        $sedang =  LinearFuzzy::select(DB::raw('COUNT(clustering) as jumlah'))->where('clustering','Sedang')->first();
+        $rendah =  LinearFuzzy::select(DB::raw('COUNT(clustering) as jumlah'))->where('clustering','Rendah')->first();
+        $sangat_rendah =  LinearFuzzy::select(DB::raw('COUNT(clustering) as jumlah'))->where('clustering','Sangat Rendah')->first();
+        $tinggi =  LinearFuzzy::select(DB::raw('COUNT(clustering) as jumlah'))->where('clustering','Tinggi')->first();
+        $sangat_tinggi =  LinearFuzzy::select(DB::raw('COUNT(clustering) as jumlah'))->where('clustering','Sangat Tinggi')->first();
         $data = LinearFuzzy::select(DB::raw('COUNT(clustering) as jumlah'),'clustering')->groupBy('clustering')->get();
-        return view('admin/dashboard', compact('data'));
+        return view('admin/dashboard', compact('data','sedang','rendah','sangat_rendah','tinggi','sangat_tinggi'));
     }
 }

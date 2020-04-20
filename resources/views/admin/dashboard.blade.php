@@ -81,9 +81,9 @@
                             <!-- small box -->
                             <div class="small-box bg-aqua" style="margin-bottom:0px;">
                                 <div class="inner">
-                                <h3></h3>
+                                <h3> {{ $sangat_rendah->jumlah }} </h3>
 
-                                <p>Skim Penelitian</p>
+                                <p>Prediksi Sangat Rendah</p>
                                 </div>
                                 <div class="icon">
                                 <i class="fa fa-list"></i>
@@ -95,9 +95,9 @@
                             <!-- small box -->
                             <div class="small-box bg-red" style="margin-bottom:0px;">
                                 <div class="inner">
-                                <h3></h3>
+                                <h3>{{ $rendah->jumlah }}</h3>
 
-                                <p>Bidang Penelitian</p>
+                                <p>Prediksi Rendah</p>
                                 </div>
                                 <div class="icon">
                                 <i class="fa fa-list-alt"></i>
@@ -109,9 +109,9 @@
                             <!-- small box -->
                             <div class="small-box bg-yellow" style="margin-bottom:0px;">
                                 <div class="inner">
-                                <h3></h3>
+                                <h3>{{ $sedang->jumlah }}</h3>
 
-                                <p>Formulir Penilaian</p>
+                                <p>Prediksi Sedang</p>
                                 </div>
                                 <div class="icon">
                                 <i class="fa fa-wpforms"></i>
@@ -123,9 +123,23 @@
                             <!-- small box -->
                             <div class="small-box bg-green" style="margin-bottom:0px;">
                                 <div class="inner">
-                                <h3></h3>
+                                <h3>{{ $tinggi->jumlah }}</h3>
 
-                                <p>Usulan Di Danai Tahap Akhir</p>
+                                <p>Prediksi Tinggi</p>
+                                </div>
+                                <div class="icon">
+                                <i class="fa fa-check-circle"></i>
+                                </div>
+                                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-xs-12 col-md-12" style="padding-bottom:10px !important;">
+                            <!-- small box -->
+                            <div class="small-box bg-red" style="margin-bottom:0px;">
+                                <div class="inner">
+                                <h3>{{ $sangat_tinggi->jumlah }}</h3>
+
+                                <p>Prediksi Sangat Tinggi</p>
                                 </div>
                                 <div class="icon">
                                 <i class="fa fa-check-circle"></i>
