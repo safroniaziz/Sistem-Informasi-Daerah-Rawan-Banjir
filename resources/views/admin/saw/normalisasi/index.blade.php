@@ -47,8 +47,8 @@
                     </div>
                     {{ csrf_field() }} {{ method_field('PATCH') }}
                     <div class="col-md-12">
-                        <a href="{{ route('admin.saw.rumus_benefit') }}" class="btn btn-primary btn-sm"><i class="fa fa-refresh"></i>&nbsp; Generate Nilai Benefit</a>
-                        <a href="{{ route('admin.saw.rumus_cost') }}" class="btn btn-info btn-sm"><i class="fa fa-refresh"></i>&nbsp; Generate Nilai Cost</a>
+                        <a href="{{ route('admin.saw.rumus_benefit') }}" class="btn btn-primary btn-sm"><i class="fa fa-refresh"></i>&nbsp; Generate Nilai Benefit & Cost</a>
+                        {{-- <a href="{{ route('admin.saw.rumus_cost') }}" class="btn btn-info btn-sm"><i class="fa fa-refresh"></i>&nbsp; Generate Nilai Cost</a> --}}
                     </div>
                     <div class="col-md-12 table-responsive">
                         <table class="table table-striped table-bordered" id="table" style="width:100%; ">
