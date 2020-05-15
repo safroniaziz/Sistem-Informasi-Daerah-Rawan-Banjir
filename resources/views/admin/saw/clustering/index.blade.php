@@ -71,7 +71,19 @@
                                     $no=1;
                                 @endphp
                                 @foreach ($clusterings as $clustering)
-                                    <tr>
+                                    <tr
+                                        @if ($clustering->clustering == "Sangat Tinggi")
+                                            style="background:#f52c11; color:white;"
+                                            @elseif($clustering->clustering == "Tinggi")
+                                            style="background:#ed891f; color:white;"
+                                            @elseif($clustering->clustering == "Sedang")
+                                            style="background:#f9fc14;"
+                                            @elseif($clustering->clustering == "Rendah")
+                                            style="background:#0ff24b;"
+                                            @elseif($clustering->clustering == "Sangat Rendah")
+                                            style="background:#3c7d4d;"
+                                        @endif
+                                    >
                                         <td> {{ $no++ }} </td>
                                         <td> {{ $clustering->tahun }} </td>
                                         <td> {{ $clustering->bulan }} </td>

@@ -11,15 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route('login');
-});
+Route::get('/', 'FrontController@index')->name('front');
+Route::get('/peta_saw','FrontController@petaSaw')->name('peta_saw');
+Route::get('/grafik_saw','FrontController@grafikSaw')->name('grafik_saw');
+Route::get('/grafik_linear','FrontController@grafikLinear')->name('grafik_linear');
 
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin'], function(){
+    Auth::routes();
     Route::get('/dashboard', 'Admin\DashboardController@index')->name('admin.dashboard');
 });
 

@@ -25,30 +25,6 @@ class ClusteringLinearController extends Controller
             $nilai = HasilLinear::select('nilai_a','nilai_b','nilai_c')->where('bulan',$data[$i]->bulan)->where('kelurahan_id',$data[$i]->kelurahan_id)->first();
             if ($data[$i]->tahun == "2014") {
                 $array[] = [
-                    'tahun' =>  '2019',
-                    'bulan' =>  $data[$i]->bulan,
-                    'kelurahan_id'  =>  $data[$i]->kelurahan_id,
-                    // 'nilai_a'   =>  $nilai->nilai_a,
-                    // 'nilai_b'   =>  $nilai->nilai_b,
-                    // 'nilai_c'   =>  $nilai->nilai_c,
-                    // 'nilai_x'   =>  ($data[$i]->tahun) == "2014" ? ($nilai->nilai_a) + (($nilai->nilai_b) * 3) + (($nilai->nilai_c) * (3 *3)) || (($data[$i]->tahun) == "2014" ? ($nilai->nilai_a) + (($nilai->nilai_b) * 3)),
-                    'nilai_x'   =>  (($nilai->nilai_a)) + ((($nilai->nilai_b) * 3)) + (($nilai->nilai_c) * ((3 *3))),
-                ];
-            }
-            elseif ($data[$i]->tahun == "2015") {
-                $array[] = [
-                    'tahun' =>  '2020',
-                    'bulan' =>  $data[$i]->bulan,
-                    'kelurahan_id'  =>  $data[$i]->kelurahan_id,
-                    // 'nilai_a'   =>  $nilai->nilai_a,
-                    // 'nilai_b'   =>  $nilai->nilai_b,
-                    // 'nilai_c'   =>  $nilai->nilai_c,
-                    // 'nilai_x'   =>  ($data[$i]->tahun) == "2014" ? ($nilai->nilai_a) + (($nilai->nilai_b) * 3) + (($nilai->nilai_c) * (3 *3)) || (($data[$i]->tahun) == "2014" ? ($nilai->nilai_a) + (($nilai->nilai_b) * 3)),
-                    'nilai_x'   =>  ($nilai->nilai_a) + (($nilai->nilai_b) * 4) + (($nilai->nilai_c) * (4 *4)),
-                ];
-            }
-            elseif ($data[$i]->tahun == "2016") {
-                $array[] = [
                     'tahun' =>  '2021',
                     'bulan' =>  $data[$i]->bulan,
                     'kelurahan_id'  =>  $data[$i]->kelurahan_id,
@@ -56,10 +32,10 @@ class ClusteringLinearController extends Controller
                     // 'nilai_b'   =>  $nilai->nilai_b,
                     // 'nilai_c'   =>  $nilai->nilai_c,
                     // 'nilai_x'   =>  ($data[$i]->tahun) == "2014" ? ($nilai->nilai_a) + (($nilai->nilai_b) * 3) + (($nilai->nilai_c) * (3 *3)) || (($data[$i]->tahun) == "2014" ? ($nilai->nilai_a) + (($nilai->nilai_b) * 3)),
-                    'nilai_x'   =>  ($nilai->nilai_a) + (($nilai->nilai_b) * 5) + (($nilai->nilai_c) * (5 *5)),
+                    'nilai_x'   =>  (($nilai->nilai_a)) + ((($nilai->nilai_b) * 5)) + (($nilai->nilai_c) * ((5 *5))),
                 ];
             }
-            elseif ($data[$i]->tahun == "2017") {
+            elseif ($data[$i]->tahun == "2015") {
                 $array[] = [
                     'tahun' =>  '2022',
                     'bulan' =>  $data[$i]->bulan,
@@ -71,7 +47,7 @@ class ClusteringLinearController extends Controller
                     'nilai_x'   =>  ($nilai->nilai_a) + (($nilai->nilai_b) * 6) + (($nilai->nilai_c) * (6 *6)),
                 ];
             }
-            elseif ($data[$i]->tahun == "2018") {
+            elseif ($data[$i]->tahun == "2016") {
                 $array[] = [
                     'tahun' =>  '2023',
                     'bulan' =>  $data[$i]->bulan,
@@ -81,6 +57,30 @@ class ClusteringLinearController extends Controller
                     // 'nilai_c'   =>  $nilai->nilai_c,
                     // 'nilai_x'   =>  ($data[$i]->tahun) == "2014" ? ($nilai->nilai_a) + (($nilai->nilai_b) * 3) + (($nilai->nilai_c) * (3 *3)) || (($data[$i]->tahun) == "2014" ? ($nilai->nilai_a) + (($nilai->nilai_b) * 3)),
                     'nilai_x'   =>  ($nilai->nilai_a) + (($nilai->nilai_b) * 7) + (($nilai->nilai_c) * (7 *7)),
+                ];
+            }
+            elseif ($data[$i]->tahun == "2017") {
+                $array[] = [
+                    'tahun' =>  '2024',
+                    'bulan' =>  $data[$i]->bulan,
+                    'kelurahan_id'  =>  $data[$i]->kelurahan_id,
+                    // 'nilai_a'   =>  $nilai->nilai_a,
+                    // 'nilai_b'   =>  $nilai->nilai_b,
+                    // 'nilai_c'   =>  $nilai->nilai_c,
+                    // 'nilai_x'   =>  ($data[$i]->tahun) == "2014" ? ($nilai->nilai_a) + (($nilai->nilai_b) * 3) + (($nilai->nilai_c) * (3 *3)) || (($data[$i]->tahun) == "2014" ? ($nilai->nilai_a) + (($nilai->nilai_b) * 3)),
+                    'nilai_x'   =>  ($nilai->nilai_a) + (($nilai->nilai_b) * 8) + (($nilai->nilai_c) * (8 *8)),
+                ];
+            }
+            elseif ($data[$i]->tahun == "2018") {
+                $array[] = [
+                    'tahun' =>  '2025',
+                    'bulan' =>  $data[$i]->bulan,
+                    'kelurahan_id'  =>  $data[$i]->kelurahan_id,
+                    // 'nilai_a'   =>  $nilai->nilai_a,
+                    // 'nilai_b'   =>  $nilai->nilai_b,
+                    // 'nilai_c'   =>  $nilai->nilai_c,
+                    // 'nilai_x'   =>  ($data[$i]->tahun) == "2014" ? ($nilai->nilai_a) + (($nilai->nilai_b) * 3) + (($nilai->nilai_c) * (3 *3)) || (($data[$i]->tahun) == "2014" ? ($nilai->nilai_a) + (($nilai->nilai_b) * 3)),
+                    'nilai_x'   =>  ($nilai->nilai_a) + (($nilai->nilai_b) * 9) + (($nilai->nilai_c) * (9 *9)),
                 ];
             }
         }

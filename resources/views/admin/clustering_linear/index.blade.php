@@ -58,8 +58,7 @@
                                     <th>Tahun</th>
                                     <th>Bulan</th>
                                     <th>Kelurahan</th>
-                                    <th>Nilai X</th>
-                                    <th>Clustering</th>
+                                    <th>Nilai Y</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -73,7 +72,6 @@
                                         <td> {{ $data->bulan }} </td>
                                         <td> {{ $data->nm_kelurahan }} </td>
                                         <td> {{ $data->nilai_x }} </td>
-                                        <td> {{ $data->clustering }} </td>
                                     </tr>
                                 @endforeach
                             </tbody>
