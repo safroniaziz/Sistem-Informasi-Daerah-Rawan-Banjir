@@ -73,10 +73,15 @@ Route::group(['prefix' => 'admin/sub_parameter'], function(){
 
 Route::group(['prefix' => 'admin/kecamatan'], function(){
     Route::get('/', 'Admin\KecamatanController@index')->name('admin.kecamatan');
+    Route::get('/{id}/edit', 'Admin\KecamatanController@edit')->name('admin.kecamatan.edit');
+    Route::patch('/', 'Admin\KecamatanController@update')->name('admin.kecamatan.update');
+
 });
 
 Route::group(['prefix' => 'admin/kelurahan'], function(){
     Route::get('/', 'Admin\KelurahanController@index')->name('admin.kelurahan');
+    Route::get('/{id}/edit', 'Admin\KelurahanController@edit')->name('admin.kelurahan.edit');
+    Route::patch('/', 'Admin\KelurahanController@update')->name('admin.kelurahan.update');
 });
 
 Route::group(['prefix' => 'admin/koordinat_kelurahan'], function(){

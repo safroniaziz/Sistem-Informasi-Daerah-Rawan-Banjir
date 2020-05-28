@@ -64,7 +64,7 @@
                                         <td> {{ $no++ }} </td>
                                         <td> {{ $kecamatan->nm_kecamatan }} </td>
                                         <td>
-                                            <a onclick="ubahBobot({{ $kecamatan->id }})" class="btn btn-info btn-sm" style="color:white; cursor:pointer;"><i class="fa fa-edit"></i></a>
+                                            <a onclick="ubahKecamatan({{ $kecamatan->id }})" class="btn btn-info btn-sm" style="color:white; cursor:pointer;"><i class="fa fa-edit"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -82,13 +82,13 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form action="{{ route('admin.parameter.update') }} " method="POST">
+                                <form action="{{ route('admin.kecamatan.update') }} " method="POST">
                                     {{ csrf_field() }} {{ method_field("PATCH") }}
                                     <input type="hidden" name="id" id="id">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Bobot Kecamatan</label>
-                                        <input type="text" class="form-control" name="bobot_parameter" id="bobot_parameter">
-                                        <small id="emailHelp" class="form-text text-muted"><i>bobot harus diisi !!</i></small>
+                                        <label for="exampleInputEmail1">Nama Kecamatan</label>
+                                        <input type="text" class="form-control" name="nm_kecamatan" id="nm_kecamatan" required>
+                                        <small id="emailHelp" class="form-text text-muted"><i>field harus diisi !!</i></small>
                                     </div>
                                 </form>
                             </div>
@@ -114,15 +114,15 @@
             });
         } );
 
-        function ubahBobot(id){
+        function ubahKecamatan(id){
             $.ajax({
-                url: "{{ url('admin/parameter') }}"+'/'+ id + "/edit",
+                url: "{{ url('admin/kecamatan') }}"+'/'+ id + "/edit",
                 type: "GET",
                 dataType: "JSON",
                 success: function(data){
                     $('#modalubah').modal('show');
                     $('#id').val(data.id);
-                    $('#bobot_parameter').val(data.bobot_parameter);
+                    $('#nm_kecamatan').val(data.nm_kecamatan);
                 },
                 error:function(){
                     alert("Nothing Data");

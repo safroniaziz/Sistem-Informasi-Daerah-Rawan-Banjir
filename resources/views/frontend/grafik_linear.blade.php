@@ -48,10 +48,10 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="{{ route('front') }}">Home</a></li>
+          <li><a href="{{ route('front') }}">Home</a></li>
           <li><a href="{{ route('peta_saw') }}">Peta SAW</a></li>
           <li><a href="{{ route('grafik_saw') }}">Grafik SAW</a></li>
-          <li><a href="{{ route('grafik_linear') }}">Grafik Linear</a></li>
+          <li class="active"><a href="{{ route('grafik_linear') }}">Grafik Linear</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->
@@ -90,7 +90,41 @@
 
         <div class="section-title">
           <h2>GRAFIK HASIL METODE TREN NON LINEAR PERKELURAHAN & PERBULAN</h2>
-          <p>Ditampilkan menggunakan amcharts</p>
+          <p>
+            @if (!isset($_GET['kelurahan_id']))
+              Silahkan pilih tahun dan bulan terlebih dahulu    
+              @else
+              Menampilkan Peta Pada Kelurahan  
+                @if ($_GET['kelurahan_id'] == "1")
+                    Rawamakmur
+                    @elseif($_GET['kelurahan_id'] == "2")
+                    Bentiring
+                    @elseif($_GET['kelurahan_id'] == "3")
+                    Bentiring Permai
+                    @elseif($_GET['kelurahan_id'] == "4")
+                    Beringin Raya
+                    @elseif($_GET['kelurahan_id'] == "5")
+                    Kandang Limun
+                    @elseif($_GET['kelurahan_id'] == "6")
+                    Pematang Gubernur
+                    @elseif($_GET['kelurahan_id'] == "7")
+                    Pasar Bengkulu
+                    @elseif($_GET['kelurahan_id'] == "8")
+                    Kampung Kelawi
+                    @elseif($_GET['kelurahan_id'] == "9")
+                    Sukamerindu
+                    @elseif($_GET['kelurahan_id'] == "10")
+                    Tanjung Agung
+                    @elseif($_GET['kelurahan_id'] == "11")
+                    Tanjung Jaya
+                    @elseif($_GET['kelurahan_id'] == "12")
+                    Semarang
+                    @elseif($_GET['kelurahan_id'] == "13")
+                    Surabaya
+                @endif
+              dan Bulan {{ $_GET['bulan'] }} di Setiap Tahun
+            @endif
+          </p>
         </div>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">

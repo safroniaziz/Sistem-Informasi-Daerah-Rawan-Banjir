@@ -71,7 +71,7 @@
 </li>
 
 <li>
-    <a href=" {{ route('admin.clustering_linear') }} "><i class="fa fa-home"></i>Clustering Non Linier</a>
+    <a href=" {{ route('admin.clustering_linear') }} "><i class="fa fa-home"></i>Hasil Akhir Trend Non Linier</a>
 </li>
 
 

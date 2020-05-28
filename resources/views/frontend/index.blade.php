@@ -35,7 +35,96 @@
                 </select>
             </div>
             <div class="col-md-12" style="margin-bottom:10px; text-align:center;">
+                <a onclick="keterangan()" id="tombol_keterangan" class="btn btn-success btn-sm" style="color: white; cursor:pointer;"><i class="fa fa-info-circle"></i>&nbsp; Lihat Keterangan</a>
+                <a onclick="sembunyikan()" id="tombol_sembunyikan" class="btn btn-success btn-sm" style="color: white; cursor:pointer; display:none;"><i class="fa fa-info-circle"></i>&nbsp; Sembunyikan Keterangan</a>
                 <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-searach"></i>&nbsp; Tampilkan Peta</button>
+            </div>
+            <div class="col-md-12" style="margin-bottom:10px; text-align:center; display:none;" id="keterangan">
+                <h5>Keterangan Legenda</h5>
+                <table style="margin:0 auto !important; width:50% !important;" class="">
+                    <tr>
+                        <th>Warna Poligon</th>
+                        <th>Nama Kecamatan</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="padding:5px; background:#8a1652;"></div>
+                        </td>
+                        <td>RawaMakmur</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="padding:5px; background:#b099a5;"></div>
+                        </td>
+                        <td>Bentiring</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="padding:5px; background:#6d9ff2;"></div>
+                        </td>
+                        <td>Bentiring Permai</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="padding:5px; background:#0fa1e0;"></div>
+                        </td>
+                        <td>Beringin Raya</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="padding:5px; background:#ebba34;"></div>
+                        </td>
+                        <td>Kandang Limun</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="padding:5px; background:#2de349;"></div>
+                        </td>
+                        <td>Pematang Gubernur</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="padding:5px; background:#00ffff;"></div>
+                        </td>
+                        <td>Pasar Bengkulu</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="padding:5px; background:#ff00ff;"></div>
+                        </td>
+                        <td>Kampung Kelawi</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="padding:5px; background:#ff8000;"></div>
+                        </td>
+                        <td>Sukamerindu</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="padding:5px; background:#e60000;"></div>
+                        </td>
+                        <td>Tanjung Agung</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="padding:5px; background:#4287f5;"></div>
+                        </td>
+                        <td>Tanjung Jaya</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="padding:5px; background:#bf73eb;"></div>
+                        </td>
+                        <td>Semarang</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="padding:5px; background:#eb73d3;"></div>
+                        </td>
+                        <td>Surabaya</td>
+                    </tr>
+                </table>
             </div>
        </div>
     </form>
@@ -86,6 +175,20 @@
     <script src="https://www.amcharts.com/lib/4/core.js"></script>
     <script src="https://www.amcharts.com/lib/4/charts.js"></script>
     <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+    <script>
+        function keterangan(){
+            $('#keterangan').show(300);
+            $('#tombol_sembunyikan').show(300);
+            $('#tombol_keterangan').hide(300);
+        }
+
+        function sembunyikan(){
+            $('#keterangan').hide(300);
+            $('#tombol_sembunyikan').hide(300);
+            $('#tombol_keterangan').show(300);
+        }
+    </script>
 
     <!-- Chart code -->
     <script>
@@ -384,14 +487,14 @@
             <?php }?>
 
             <?php for($i=0;$i<count($tanjungagung);$i++){?>
-                    var pasanganTitiksukamerindua = [
+                    var pasanganTitikAgung = [
                         <?php for($i=0;$i<count($tanjungagung);$i++){?>
                             {lat:<?php echo $tanjungagung[$i]['lat'] ?>, lng:<?php echo $tanjungagung[$i]['long']?>},
                         <?php }?>
                     ];
 
                     var tanjungagung = new google.maps.Polygon({
-                        paths: pasanganTitiksukamerindua,
+                        paths: pasanganTitikAgung,
                         strokeColor: '#e60000',
                         strokeOpacity: 0.8,
                         strokeWeight: 3,
@@ -403,14 +506,14 @@
             <?php }?>
 
             <?php for($i=0;$i<count($tanjungjaya);$i++){?>
-                    var pasanganTitiksukamerindua = [
+                    var pasanganTitikJaya = [
                         <?php for($i=0;$i<count($tanjungjaya);$i++){?>
                             {lat:<?php echo $tanjungjaya[$i]['lat'] ?>, lng:<?php echo $tanjungjaya[$i]['long']?>},
                         <?php }?>
                     ];
 
                     var tanjungjaya = new google.maps.Polygon({
-                        paths: pasanganTitiksukamerindua,
+                        paths: pasanganTitikJaya,
                         strokeColor: '#4287f5',
                         strokeOpacity: 0.8,
                         strokeWeight: 3,
@@ -422,14 +525,14 @@
             <?php }?>
 
             <?php for($i=0;$i<count($semarang);$i++){?>
-                    var pasanganTitiksukamerindua = [
+                    var pasanganTitikSemarang = [
                         <?php for($i=0;$i<count($semarang);$i++){?>
                             {lat:<?php echo $semarang[$i]['lat'] ?>, lng:<?php echo $semarang[$i]['long']?>},
                         <?php }?>
                     ];
 
                     var semarang = new google.maps.Polygon({
-                        paths: pasanganTitiksukamerindua,
+                        paths: pasanganTitikSemarang,
                         strokeColor: '#bf73eb',
                         strokeOpacity: 0.5,
                         strokeWeight: 3,
@@ -441,14 +544,14 @@
             <?php }?>
 
             <?php for($i=0;$i<count($surabaya);$i++){?>
-                    var pasanganTitiksukamerindua = [
+                    var pasanganTitikSurabaya = [
                         <?php for($i=0;$i<count($surabaya);$i++){?>
                             {lat:<?php echo $surabaya[$i]['lat'] ?>, lng:<?php echo $surabaya[$i]['long']?>},
                         <?php }?>
                     ];
 
                     var surabaya = new google.maps.Polygon({
-                        paths: pasanganTitiksukamerindua,
+                        paths: pasanganTitikSurabaya,
                         strokeColor: '#eb73d3',
                         strokeOpacity: 0.8,
                         strokeWeight: 3,

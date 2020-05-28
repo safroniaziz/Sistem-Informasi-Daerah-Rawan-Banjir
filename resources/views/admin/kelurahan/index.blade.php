@@ -88,9 +88,18 @@
                                     {{ csrf_field() }} {{ method_field("PATCH") }}
                                     <input type="hidden" name="id" id="id">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Bobot Kelurahan</label>
-                                        <input type="text" class="form-control" name="bobot_parameter" id="bobot_parameter">
-                                        <small id="emailHelp" class="form-text text-muted"><i>bobot harus diisi !!</i></small>
+                                        <label for="exampleInputEmail1">Nama Kelurahan</label>
+                                        <input type="text" class="form-control" name="nm_kelurahan" id="nm_kelurahan">
+                                        <small id="emailHelp" class="form-text text-muted"><i>field harus diisi !!</i></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Nama Kecamatan</label>
+                                        <select name="kecamatan_id" id="kecamatan_id" class="form-control" required>
+                                            <option value="" selected disabled>-- pilih kecamatan --</option>
+                                            @foreach ($kecamatans as $kecamatan)
+                                                <option value="{{ $kecamatan->id }}">{{ $kecamatan->nm_kecamatan }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </form>
                             </div>
@@ -118,13 +127,14 @@
 
         function ubahBobot(id){
             $.ajax({
-                url: "{{ url('admin/parameter') }}"+'/'+ id + "/edit",
+                url: "{{ url('admin/kelurahan') }}"+'/'+ id + "/edit",
                 type: "GET",
                 dataType: "JSON",
                 success: function(data){
                     $('#modalubah').modal('show');
                     $('#id').val(data.id);
-                    $('#bobot_parameter').val(data.bobot_parameter);
+                    $('#nm_kelurahan').val(data.nm_kelurahan);
+                    $('#kecamatan_id').val(data.kecamatan_id);
                 },
                 error:function(){
                     alert("Nothing Data");

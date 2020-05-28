@@ -48,8 +48,8 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="{{ route('front') }}">Home</a></li>
-          <li><a href="{{ route('peta_saw') }}">Peta SAW</a></li>
+          <li><a href="{{ route('front') }}">Home</a></li>
+          <li class="active"><a href="{{ route('peta_saw') }}">Peta SAW</a></li>
           <li><a href="{{ route('grafik_saw') }}">Grafik SAW</a></li>
           <li><a href="{{ route('grafik_linear') }}">Grafik Linear</a></li>
 
@@ -90,7 +90,13 @@
 
         <div class="section-title">
           <h2>PETA HASIL METODE SAW PERBULAN</h2>
-          <p>Ditampilkan menggunakan google maps API</p>
+          <p>
+            @if (!isset($_GET['tahun']))
+              Silahkan pilih tahun dan bulan terlebih dahulu    
+              @else
+              Menampilkan Peta Pada Tahun {{ $_GET['tahun'] }} dan Bulan {{ $_GET['bulan'] }} di Setiap Kelurahan
+            @endif
+        </p>
         </div>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
