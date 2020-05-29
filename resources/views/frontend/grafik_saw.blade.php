@@ -61,20 +61,23 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
+  <section id="hero" style="height:50vh !important;" class="d-flex align-items-center">
 
     <div class="container">
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-          <h1 style="text-transform: uppercase">Sistem Informasi Daerah Rawan Banjir</h1>
+          <h3 style="text-transform: uppercase; margin: 0 0 10px 0;
+          font-weight: 700;
+          color: #fff;">Sistem Informasi Daerah Rawan Banjir</h3>
           <h2>Sepanjang Daerah Yang DIlewati Aliran Sungai (DAS) Bengkulu</h2>
+          
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
           <div class="d-lg-flex">
             <a href="{{ route('login') }}" target="_blank" class="btn-get-started scrollto">Login</a>
             <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
           </div>
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-          <img src="{{ asset('assets/front/img/hero-img.png') }}" style="height: 350px !important;" class="img-fluid animated" alt="">
+          {{-- <img src="{{ asset('assets/front/img/hero-img.png') }}" style="height: 350px !important;" class="img-fluid animated" alt=""> --}}
         </div>
       </div>
     </div>

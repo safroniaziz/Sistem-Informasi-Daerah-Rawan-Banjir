@@ -62,20 +62,23 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
+  <section id="hero" style="height:50vh !important;" class="d-flex align-items-center">
 
     <div class="container">
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-          <h1 style="text-transform: uppercase">Sistem Informasi Daerah Rawan Banjir</h1>
+          <h3 style="text-transform: uppercase; margin: 0 0 10px 0;
+          font-weight: 700;
+          color: #fff;">Sistem Informasi Daerah Rawan Banjir</h3>
           <h2>Sepanjang Daerah Yang DIlewati Aliran Sungai (DAS) Bengkulu</h2>
+          
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
           <div class="d-lg-flex">
             <a href="{{ route('login') }}" target="_blank" class="btn-get-started scrollto">Login</a>
             <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
           </div>
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-          <img src="{{ asset('assets/front/img/hero-img.png') }}" style="height: 350px !important;" class="img-fluid animated" alt="">
+          {{-- <img src="{{ asset('assets/front/img/hero-img.png') }}" style="height: 350px !important;" class="img-fluid animated" alt=""> --}}
         </div>
       </div>
     </div>
@@ -135,8 +138,56 @@
                             </select>
                         </div>
                         <div class="col-md-12" style="margin-bottom:10px; text-align:center;">
+                          <a onclick="keterangan()" id="tombol_keterangan" class="btn btn-success btn-sm" style="color: white; cursor:pointer;"><i class="fa fa-info-circle"></i>&nbsp; Lihat Keterangan</a>
+                          <a onclick="sembunyikan()" id="tombol_sembunyikan" class="btn btn-success btn-sm" style="color: white; cursor:pointer; display:none;"><i class="fa fa-info-circle"></i>&nbsp; Sembunyikan Keterangan</a>
                             <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-searach"></i>&nbsp; Tampilkan Peta</button>
                         </div>
+                        <div class="col-md-12" style="margin-bottom:10px; text-align:center; display:none;" id="keterangan">
+                          <h5>Keterangan Legenda</h5>
+                          <table style="margin:0 auto !important; width:50% !important;" class="">
+                              <tr>
+                                  <th>Keterangan Warna</th>
+                                  <th>Warna Poligon</th>
+                                  <th>Keterangan</th>
+                              </tr>
+                              <tr>
+                                  <td>Hijau Tua</td>
+                                  <td>
+                                      <div style="padding:5px; background:#3c7d4d;"></div>
+                                  </td>
+                                  <td>Sangat Rendah</td>
+                              </tr>
+                              <tr>
+                                  <td>Hijau</td>
+                                  <td>
+                                      <div style="padding:5px; background:#0ff24b;"></div>
+                                  </td>
+                                  <td>Rendah</td>
+                              </tr>
+                              <tr>
+                                <td>Kuning</td>
+                                <td>
+                                    <div style="padding:5px; background:#f9fc14;"></div>
+                                </td>
+                                <td>Sedang</td>
+                            </tr>
+                            <tr>
+                              <td>Orange</td>
+                              <td>
+                                  <div style="padding:5px; background:#ed891f;"></div>
+                              </td>
+                              <td>Tinggi</td>
+                          </tr>
+                          <tr>
+                            <td>Merah</td>
+                            <td>
+                                <div style="padding:5px; background:#f52c11;"></div>
+                            </td>
+                            <td>Sangat Tinggi</td>
+                        </tr>
+
+                          </table>
+                      </div>
                    </div>
                 </form>
                 <div id="maps" style="width: 100%; height:600px;">
@@ -186,6 +237,19 @@
 </body>
 
 </html>
+<script>
+  function keterangan(){
+      $('#keterangan').show(300);
+      $('#tombol_sembunyikan').show(300);
+      $('#tombol_keterangan').hide(300);
+  }
+
+  function sembunyikan(){
+      $('#keterangan').hide(300);
+      $('#tombol_sembunyikan').hide(300);
+      $('#tombol_keterangan').show(300);
+  }
+</script>
 
 <script>
     var map;
