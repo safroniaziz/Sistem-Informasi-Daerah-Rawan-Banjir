@@ -66,19 +66,13 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-          <h3 style="text-transform: uppercase; margin: 0 0 10px 0;
-          font-weight: 700;
-          color: #fff;">Sistem Informasi Daerah Rawan Banjir</h3>
-          <h2>Sepanjang Daerah Yang DIlewati Aliran Sungai (DAS) Bengkulu</h2>
+        <div class="col-lg-12 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200" style="text-align:center;">
+          <h5 style="color: white;">Sepanjang Daerah Yang DIlewati Aliran Sungai (DAS) <br> Kota Bengkulu</h5>
           
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
           <div class="d-lg-flex">
-            <a href="{{ route('login') }}" target="_blank" class="btn-get-started scrollto">Login</a>
-            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
           </div>
-          {{-- <img src="{{ asset('assets/front/img/hero-img.png') }}" style="height: 350px !important;" class="img-fluid animated" alt=""> --}}
         </div>
       </div>
     </div>
@@ -92,14 +86,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>PETA HASIL METODE SAW PERBULAN</h2>
-          <p>
-            @if (!isset($_GET['tahun']))
-              Silahkan pilih tahun dan bulan terlebih dahulu    
-              @else
-              Menampilkan Peta Pada Tahun {{ $_GET['tahun'] }} dan Bulan {{ $_GET['bulan'] }} di Setiap Kelurahan
-            @endif
-        </p>
+          <h2>PETA HASIL METODE SAW PERBULAN  <br> (TAHUN 2014-2018)</h2>
         </div>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
@@ -188,8 +175,18 @@
 
                           </table>
                       </div>
+                      
                    </div>
                 </form>
+                <div>
+                  <p style="text-align: center">
+                    @if (!isset($_GET['tahun']))
+                      Silahkan pilih tahun dan bulan terlebih dahulu    
+                      @else
+                      Menampilkan Peta Pada Tahun {{ $_GET['tahun'] }} dan Bulan {{ $_GET['bulan'] }} di Setiap Kelurahan
+                    @endif
+                </p>
+                </div>
                 <div id="maps" style="width: 100%; height:600px;">
                 </div> 
             </div>

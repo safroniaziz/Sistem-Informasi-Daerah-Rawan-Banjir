@@ -65,19 +65,13 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-          <h3 style="text-transform: uppercase; margin: 0 0 10px 0;
-          font-weight: 700;
-          color: #fff;">Sistem Informasi Daerah Rawan Banjir</h3>
-          <h2>Sepanjang Daerah Yang DIlewati Aliran Sungai (DAS) Bengkulu</h2>
+        <div class="col-lg-12 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200" style="text-align:center;">
+          <h5 style="color: white;">Sepanjang Daerah Yang DIlewati Aliran Sungai (DAS) <br> Kota Bengkulu</h5>
           
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
           <div class="d-lg-flex">
-            <a href="{{ route('login') }}" target="_blank" class="btn-get-started scrollto">Login</a>
-            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
           </div>
-          {{-- <img src="{{ asset('assets/front/img/hero-img.png') }}" style="height: 350px !important;" class="img-fluid animated" alt=""> --}}
         </div>
       </div>
     </div>
@@ -91,42 +85,8 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>GRAFIK HASIL METODE SAW PERKELURAHAN & PERBULAN</h2>
-          <p>
-            @if (!isset($_GET['kelurahan_id']))
-              Silahkan pilih tahun dan bulan terlebih dahulu    
-              @else
-              Menampilkan Peta Pada Kelurahan  
-                @if ($_GET['kelurahan_id'] == "1")
-                    Rawamakmur
-                    @elseif($_GET['kelurahan_id'] == "2")
-                    Bentiring
-                    @elseif($_GET['kelurahan_id'] == "3")
-                    Bentiring Permai
-                    @elseif($_GET['kelurahan_id'] == "4")
-                    Beringin Raya
-                    @elseif($_GET['kelurahan_id'] == "5")
-                    Kandang Limun
-                    @elseif($_GET['kelurahan_id'] == "6")
-                    Pematang Gubernur
-                    @elseif($_GET['kelurahan_id'] == "7")
-                    Pasar Bengkulu
-                    @elseif($_GET['kelurahan_id'] == "8")
-                    Kampung Kelawi
-                    @elseif($_GET['kelurahan_id'] == "9")
-                    Sukamerindu
-                    @elseif($_GET['kelurahan_id'] == "10")
-                    Tanjung Agung
-                    @elseif($_GET['kelurahan_id'] == "11")
-                    Tanjung Jaya
-                    @elseif($_GET['kelurahan_id'] == "12")
-                    Semarang
-                    @elseif($_GET['kelurahan_id'] == "13")
-                    Surabaya
-                @endif
-              dan Bulan {{ $_GET['bulan'] }} di Setiap Tahun
-            @endif
-          </p>
+          <h2>GRAFIK HASIL METODE SAW PERKELURAHAN & PERBULAN <br> (TAHUN 2014-2018)</h2>
+          <p>Silahkan Pilih Kelurahan dan Bulan</p>
         </div>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
@@ -164,10 +124,47 @@
                             </select>
                         </div>
                         <div class="col-md-12" style="margin-bottom:10px; text-align:center;">
-                            <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-searach"></i>&nbsp; Tampilkan Peta</button>
+                            <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-searach"></i>&nbsp; Tampilkan Grafik</button>
                         </div>
                    </div>
                 </form>
+                <div style="text-align: center">
+                  <p>
+                    @if (!isset($_GET['kelurahan_id']))
+                      Silahkan pilih tahun dan bulan terlebih dahulu    
+                      @else
+                      Menampilkan Peta Pada Kelurahan  
+                        @if ($_GET['kelurahan_id'] == "1")
+                            Rawamakmur
+                            @elseif($_GET['kelurahan_id'] == "2")
+                            Bentiring
+                            @elseif($_GET['kelurahan_id'] == "3")
+                            Bentiring Permai
+                            @elseif($_GET['kelurahan_id'] == "4")
+                            Beringin Raya
+                            @elseif($_GET['kelurahan_id'] == "5")
+                            Kandang Limun
+                            @elseif($_GET['kelurahan_id'] == "6")
+                            Pematang Gubernur
+                            @elseif($_GET['kelurahan_id'] == "7")
+                            Pasar Bengkulu
+                            @elseif($_GET['kelurahan_id'] == "8")
+                            Kampung Kelawi
+                            @elseif($_GET['kelurahan_id'] == "9")
+                            Sukamerindu
+                            @elseif($_GET['kelurahan_id'] == "10")
+                            Tanjung Agung
+                            @elseif($_GET['kelurahan_id'] == "11")
+                            Tanjung Jaya
+                            @elseif($_GET['kelurahan_id'] == "12")
+                            Semarang
+                            @elseif($_GET['kelurahan_id'] == "13")
+                            Surabaya
+                        @endif
+                      dan Bulan {{ $_GET['bulan'] }} di Setiap Tahun
+                    @endif
+                  </p>
+                </div>
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         @section('data-saw')

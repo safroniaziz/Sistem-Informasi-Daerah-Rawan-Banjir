@@ -42,7 +42,9 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="index.html">SIBANJIR</a></h1>
+      <h1 class="logo mr-auto"><a href="index.html" style="font-size: 16px !important;">
+        <img src="{{ asset('assets/images/bmkg.png') }}" style="width: 100px !important;"> Sistem Informasi Daerah Rawan Banjir
+      </a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -52,6 +54,10 @@
           <li><a href="{{ route('peta_saw') }}">Peta SAW</a></li>
           <li><a href="{{ route('grafik_saw') }}">Grafik SAW</a></li>
           <li><a href="{{ route('grafik_linear') }}">Grafik Linear</a></li>
+          <li>
+            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
+
+          </li>
 
         </ul>
       </nav><!-- .nav-menu -->
@@ -62,23 +68,17 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" style="height:50vh !important;" class="d-flex align-items-center">
+  <section id="hero" style="height:30vh !important;" class="d-flex align-items-center">
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-          <h3 style="text-transform: uppercase; margin: 0 0 10px 0;
-          font-weight: 700;
-          color: #fff;">Sistem Informasi Daerah Rawan Banjir</h3>
-          <h2>Sepanjang Daerah Yang DIlewati Aliran Sungai (DAS) Bengkulu</h2>
+        <div class="col-lg-12 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200" style="text-align:center;">
+          <h5 style="color: white;">Sepanjang Daerah Yang DIlewati Aliran Sungai (DAS) <br> Kota Bengkulu</h5>
           
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
           <div class="d-lg-flex">
-            <a href="{{ route('login') }}" target="_blank" class="btn-get-started scrollto">Login</a>
-            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
           </div>
-          {{-- <img src="{{ asset('assets/front/img/hero-img.png') }}" style="height: 350px !important;" class="img-fluid animated" alt=""> --}}
         </div>
       </div>
     </div>
@@ -92,7 +92,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>PETA HASIL METODE SAW PERBULAN</h2>
+          <h2>PETA HASIL METODE SAW PERBULAN  <br> (TAHUN 2014-2018)</h2>
           <p>Ditampilkan menggunakan google maps API</p>
         </div>
 
@@ -108,7 +108,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Grafik Urutan Cluster SAW Sangat Tinggi Terbanyak</h2>
+          <h2>Grafik Urutan Cluster SAW Sangat Tinggi Terbanyak  <br> (TAHUN 2014-2018)</h2>
           <p>Grafik dibawah hanya menampilkan hasil cluster SAW terbanyak setiap tahunnya, jika ingin melihat lebih detail, silagkan klik menu Grafik SAW di Navigasi Menu</p>
         </div>
 
