@@ -42,7 +42,9 @@
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="index.html">SIBANJIR</a></h1>
+      <h1 class="logo mr-auto"><a href="index.html" style="font-size: 16px !important;">
+        <img src="{{ asset('assets/images/bmkg.png') }}" style="width: "> Sistem Informasi Daerah Rawan Banjir
+      </a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -62,7 +64,7 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" style="height:50vh !important;" class="d-flex align-items-center">
+  <section id="hero" style="height:30vh !important;" class="d-flex align-items-center">
 
     <div class="container">
       <div class="row">
