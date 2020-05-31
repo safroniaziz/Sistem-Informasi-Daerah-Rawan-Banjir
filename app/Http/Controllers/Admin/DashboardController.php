@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\LinearFuzzy;
+use App\Clustering;
 use DB;
 
 class DashboardController extends Controller
@@ -20,7 +21,7 @@ class DashboardController extends Controller
         $sangat_rendah =  LinearFuzzy::select(DB::raw('COUNT(clustering) as jumlah'))->where('clustering','Sangat Rendah')->first();
         $tinggi =  LinearFuzzy::select(DB::raw('COUNT(clustering) as jumlah'))->where('clustering','Tinggi')->first();
         $sangat_tinggi =  LinearFuzzy::select(DB::raw('COUNT(clustering) as jumlah'))->where('clustering','Sangat Tinggi')->first();
-        $data = LinearFuzzy::select(DB::raw('COUNT(clustering) as jumlah'),'clustering')->groupBy('clustering')->get();
+        $data = Clustering::select(DB::raw('COUNT(clustering) as jumlah'),'clustering')->groupBy('clustering')->get();
         return view('admin/dashboard', compact('data','sedang','rendah','sangat_rendah','tinggi','sangat_tinggi'));
     }
 }
