@@ -54,7 +54,9 @@
           <li class="active"><a href="{{ route('peta_saw') }}">Peta SAW</a></li>
           <li><a href="{{ route('grafik_saw') }}">Grafik SAW</a></li>
           <li><a href="{{ route('grafik_linear') }}">Grafik Linear</a></li>
-
+          <li>
+            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Video <i class="icofont-play-alt-2"></i></a>
+          </li>
         </ul>
       </nav><!-- .nav-menu -->
 
@@ -69,8 +71,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200" style="text-align:center;">
-          <h5 style="color: white;">Sepanjang Daerah Yang DIlewati Aliran Sungai (DAS) <br> Kota Bengkulu</h5>
-          
+          <h5 style="color: white;">Sepanjang Daerah Yang DIlewati SUB DAS(Daerah Aliran Sungai) <br> Bengkulu Hilir</h5>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
           <div class="d-lg-flex">

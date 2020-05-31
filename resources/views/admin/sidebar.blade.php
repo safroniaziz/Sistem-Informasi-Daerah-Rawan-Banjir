@@ -24,12 +24,12 @@
     </ul>
 </li>
 
-<li><a><i class="fa fa-building-o"></i>Manajemen Nilai  <span class="fa fa-chevron-down"></span></a>
+{{-- <li><a><i class="fa fa-building-o"></i>Manajemen Nilai  <span class="fa fa-chevron-down"></span></a>
     <ul class="nav child_menu">
         <li><a href=" {{ route('admin.nilai_parameter') }} ">Nilai Parameter / Kel & Bulan</a></li>
         <li><a href=" {{ route('admin.nilai_sub_parameter') }} ">Nilai Sub Parameter / Kel & Bulan</a></li>
     </ul>
-</li>
+</li> --}}
 
 <li><a><i class="fa fa-calculator"></i>Nilai Fuzzy  <span class="fa fa-chevron-down"></span></a>
     <ul class="nav child_menu">
