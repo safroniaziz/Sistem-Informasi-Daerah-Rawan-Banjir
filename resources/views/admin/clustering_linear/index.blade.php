@@ -48,7 +48,7 @@
                     {{ csrf_field() }} {{ method_field('PATCH') }}
                     <div class="col-md-12">
                         <a href="{{ route('admin.clustering_linear.rumus_clustering_linear') }}" class="btn btn-primary btn-sm"><i class="fa fa-refresh"></i>&nbsp; Generate Nilai</a>
-                        <a href="{{ route('admin.clustering_linear.rumus_clustering') }}" class="btn btn-primary btn-sm"><i class="fa fa-refresh"></i>&nbsp; Generate Clustering</a>
+                        {{-- <a href="{{ route('admin.clustering_linear.rumus_clustering') }}" class="btn btn-primary btn-sm"><i class="fa fa-refresh"></i>&nbsp; Generate Clustering</a> --}}
                     </div>
                     <div class="col-md-12 table-responsive">
                         <table class="table table-striped table-bordered" id="table" style="width:100%; ">

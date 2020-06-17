@@ -135,10 +135,10 @@ class SawController extends Controller
                 'kelurahan_id'  =>  $data[$i]->kelurahan_id,
                 'tahun'  =>  $data[$i]->tahun,
                 'bulan'  =>  $data[$i]->bulan,
-                'c1'  =>  number_format(($data[$i]->c1 * 0.8), 9),
-                'c2'  =>  number_format(($data[$i]->c2 * 0.3), 9),
-                'c3'  =>  number_format(($data[$i]->c3 * 0.8), 9),
-                'c4'  =>  number_format(($data[$i]->c4 * 1), 9),
+                'c1'  =>  number_format(($data[$i]->c1 * 0.27), 9),
+                'c2'  =>  number_format(($data[$i]->c2 * 0.31), 9),
+                'c3'  =>  number_format(($data[$i]->c3 * 0.26), 9),
+                'c4'  =>  number_format(($data[$i]->c4 * 0.16), 9),
             ];
         }
 
@@ -167,7 +167,7 @@ class SawController extends Controller
         $data = Pembobotan::select('pembobotans.id','kelurahan_id','jumlah','tahun','kelurahan_id','bulan','c1','c2','c3','c4')->get();
         $array = [];
         for ($i=0; $i < count($data) ; $i++) {
-            if ($data[$i]->jumlah >0.0001 && $data[$i]->jumlah <= 0.58) {
+            if ($data[$i]->jumlah >0.0001 && $data[$i]->jumlah <= 0.2) {
                 $array[] = [
                     'kelurahan_id'  =>  $data[$i]->kelurahan_id,
                     'tahun'  =>  $data[$i]->tahun,
@@ -180,7 +180,7 @@ class SawController extends Controller
                     'clustering'  =>  "Sangat Rendah",
                 ];
             }
-            elseif ($data[$i]->jumlah >= 0.5801 && $data[$i]->jumlah <=1.16 ) {
+            elseif ($data[$i]->jumlah >= 0.2001 && $data[$i]->jumlah <=0.4 ) {
                 $array[] = [
                     'kelurahan_id'  =>  $data[$i]->kelurahan_id,
                     'tahun'  =>  $data[$i]->tahun,
@@ -193,7 +193,7 @@ class SawController extends Controller
                     'clustering'  =>  "Rendah",
                 ];
             }
-            elseif ($data[$i]->jumlah >= 1.1601 && $data[$i]->jumlah <=1.74 ) {
+            elseif ($data[$i]->jumlah >= 0.4001 && $data[$i]->jumlah <=0.6 ) {
                 $array[] = [
                     'kelurahan_id'  =>  $data[$i]->kelurahan_id,
                     'tahun'  =>  $data[$i]->tahun,
@@ -206,7 +206,7 @@ class SawController extends Controller
                     'clustering'  =>  "Sedang",
                 ];
             }
-            elseif ($data[$i]->jumlah >= 0.7401 && $data[$i]->jumlah <=2.32 ) {
+            elseif ($data[$i]->jumlah >= 0.6001 && $data[$i]->jumlah <=0.8 ) {
                 $array[] = [
                     'kelurahan_id'  =>  $data[$i]->kelurahan_id,
                     'tahun'  =>  $data[$i]->tahun,
@@ -219,7 +219,7 @@ class SawController extends Controller
                     'clustering'  =>  "Tinggi",
                 ];
             }
-            elseif ($data[$i]->jumlah >= 2.3201 && $data[$i]->jumlah <=2.9 ) {
+            elseif ($data[$i]->jumlah >= 0.8001 && $data[$i]->jumlah <=1 ) {
                 $array[] = [
                     'kelurahan_id'  =>  $data[$i]->kelurahan_id,
                     'tahun'  =>  $data[$i]->tahun,

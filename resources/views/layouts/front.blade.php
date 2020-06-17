@@ -54,9 +54,9 @@
           <li><a href="{{ route('peta_saw') }}">Peta SAW</a></li>
           <li><a href="{{ route('grafik_saw') }}">Grafik SAW</a></li>
           <li><a href="{{ route('grafik_linear') }}">Grafik Linear</a></li>
-          <li>
+          {{-- <li>
             <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Video <i class="icofont-play-alt-2"></i></a>
-          </li>
+          </li> --}}
 
         </ul>
       </nav><!-- .nav-menu -->

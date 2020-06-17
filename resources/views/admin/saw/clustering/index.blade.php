@@ -60,7 +60,7 @@
                                     <th>Kelurahan</th>
                                     <th>C1 (Pemukiman)</th>
                                     <th>C2 (Curah Hujan)</th>
-                                    <th>C3 (Topografi)</th>
+                                    <th>C3 (Kelas Tinggi Tanah)</th>
                                     <th>C4 (Bantaran Sungai)</th>
                                     <th>Jumlah</th>
                                     <th>Clustering</th>
