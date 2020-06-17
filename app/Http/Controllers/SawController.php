@@ -6,6 +6,7 @@ use App\Clustering;
 use App\Kandidat;
 use App\Normalisasi;
 use App\Pembobotan;
+use App\Parameter;
 use Illuminate\Http\Request;
 
 class SawController extends Controller
@@ -129,16 +130,20 @@ class SawController extends Controller
         $data = Normalisasi::join('kelurahans','kelurahans.id','normalisasis.kelurahan_id')
                             ->select('kelurahan_id','tahun','bulan','c1','c2','c3','c4')
                             ->get();
+        $c1 = Parameter::select('bobot_parameter')->where('id',1)->first();
+        $c2 = Parameter::select('bobot_parameter')->where('id',4)->first();
+        $c3 = Parameter::select('bobot_parameter')->where('id',2)->first();
+        $c4 = Parameter::select('bobot_parameter')->where('id',3)->first();
         $array = [];
         for ($i=0; $i <count($data) ; $i++) {
             $array[] = [
                 'kelurahan_id'  =>  $data[$i]->kelurahan_id,
                 'tahun'  =>  $data[$i]->tahun,
                 'bulan'  =>  $data[$i]->bulan,
-                'c1'  =>  number_format(($data[$i]->c1 * 0.27), 9),
-                'c2'  =>  number_format(($data[$i]->c2 * 0.31), 9),
-                'c3'  =>  number_format(($data[$i]->c3 * 0.26), 9),
-                'c4'  =>  number_format(($data[$i]->c4 * 0.16), 9),
+                'c1'  =>  number_format(($data[$i]->c1 * $c1->bobot_parameter), 9),
+                'c2'  =>  number_format(($data[$i]->c2 * $c2->bobot_parameter), 9),
+                'c3'  =>  number_format(($data[$i]->c3 * $c3->bobot_parameter), 9),
+                'c4'  =>  number_format(($data[$i]->c4 * $c4->bobot_parameter), 9),
             ];
         }
 
