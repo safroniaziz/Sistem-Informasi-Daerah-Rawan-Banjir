@@ -172,7 +172,7 @@ class SawController extends Controller
         $data = Pembobotan::select('pembobotans.id','kelurahan_id','jumlah','tahun','kelurahan_id','bulan','c1','c2','c3','c4')->get();
         $array = [];
         for ($i=0; $i < count($data) ; $i++) {
-            if ($data[$i]->jumlah >0.0001 && $data[$i]->jumlah <= 0.2) {
+            if ($data[$i]->jumlah >0.0001 && $data[$i]->jumlah <= 0.23) {
                 $array[] = [
                     'kelurahan_id'  =>  $data[$i]->kelurahan_id,
                     'tahun'  =>  $data[$i]->tahun,
@@ -185,7 +185,7 @@ class SawController extends Controller
                     'clustering'  =>  "Sangat Rendah",
                 ];
             }
-            elseif ($data[$i]->jumlah >= 0.2001 && $data[$i]->jumlah <=0.4 ) {
+            elseif ($data[$i]->jumlah >= 0.2301 && $data[$i]->jumlah <=0.46 ) {
                 $array[] = [
                     'kelurahan_id'  =>  $data[$i]->kelurahan_id,
                     'tahun'  =>  $data[$i]->tahun,
@@ -198,7 +198,7 @@ class SawController extends Controller
                     'clustering'  =>  "Rendah",
                 ];
             }
-            elseif ($data[$i]->jumlah >= 0.4001 && $data[$i]->jumlah <=0.6 ) {
+            elseif ($data[$i]->jumlah >= 0.4601 && $data[$i]->jumlah <=0.69 ) {
                 $array[] = [
                     'kelurahan_id'  =>  $data[$i]->kelurahan_id,
                     'tahun'  =>  $data[$i]->tahun,
@@ -211,7 +211,7 @@ class SawController extends Controller
                     'clustering'  =>  "Sedang",
                 ];
             }
-            elseif ($data[$i]->jumlah >= 0.6001 && $data[$i]->jumlah <=0.8 ) {
+            elseif ($data[$i]->jumlah >= 0.6901 && $data[$i]->jumlah <=0.92 ) {
                 $array[] = [
                     'kelurahan_id'  =>  $data[$i]->kelurahan_id,
                     'tahun'  =>  $data[$i]->tahun,
@@ -224,7 +224,7 @@ class SawController extends Controller
                     'clustering'  =>  "Tinggi",
                 ];
             }
-            elseif ($data[$i]->jumlah >= 0.8001 && $data[$i]->jumlah <=1 ) {
+            elseif ($data[$i]->jumlah >= 0.9201 && $data[$i]->jumlah <=1 ) {
                 $array[] = [
                     'kelurahan_id'  =>  $data[$i]->kelurahan_id,
                     'tahun'  =>  $data[$i]->tahun,
