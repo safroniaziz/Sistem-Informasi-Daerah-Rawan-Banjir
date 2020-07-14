@@ -31,15 +31,6 @@
     </ul>
 </li> --}}
 
-<li><a><i class="fa fa-calculator"></i>Nilai Fuzzy  <span class="fa fa-chevron-down"></span></a>
-    <ul class="nav child_menu">
-        <li><a href=" {{ route('admin.fuzzy.pemukiman') }} ">Fuzzy Pemukiman</a></li>
-        <li><a href=" {{ route('admin.fuzzy.curah_hujan') }} ">Fuzzy Curah Hujan</a></li>
-        <li><a href=" {{ route('admin.fuzzy.topografi') }} ">Fuzzy Kelas Tinggi Tanah</a></li>
-        <li><a href=" {{ route('admin.fuzzy.bantaran') }} ">Fuzzy Bantaran Sungai</a></li>
-    </ul>
-</li>
-
 <li><a><i class="fa fa-calculator"></i>Nilai SAW  <span class="fa fa-chevron-down"></span></a>
     <ul class="nav child_menu">
         <li><a href=" {{ route('admin.saw.kandidat') }} ">Matriks Kandidat</a></li>

@@ -29,32 +29,32 @@ class SawController extends Controller
 
     public function rumusBenefit(){
         $data = Kandidat::join('kelurahans','kelurahans.id','kandidats.kelurahan_id')
-                            ->select('kelurahan_id','tahun','bulan','c1','c3','c2','c4')
+                            ->select('kelurahan_id','tahun','bulan','c1','c2','c3','c4')
                             ->get();
-        $max14['c1'] = Kandidat::where('tahun','2014')->max('c1');
-        $max14['c3'] = Kandidat::where('tahun','2014')->max('c3');
+        $min14['c1'] = Kandidat::where('tahun','2014')->min('c1');
         $min14['c2'] = Kandidat::where('tahun','2014')->min('c2');
-        $min14['c4'] = Kandidat::where('tahun','2014')->min('c4');
+        $max14['c3'] = Kandidat::where('tahun','2014')->max('c3');
+        $max14['c4'] = Kandidat::where('tahun','2014')->max('c4');
 
-        $max15['c1'] = Kandidat::where('tahun','2015')->max('c1');
-        $max15['c3'] = Kandidat::where('tahun','2015')->max('c3');
+        $min15['c1'] = Kandidat::where('tahun','2015')->min('c1');
         $min15['c2'] = Kandidat::where('tahun','2015')->min('c2');
-        $min15['c4'] = Kandidat::where('tahun','2015')->min('c4');
+        $max15['c3'] = Kandidat::where('tahun','2015')->max('c3');
+        $max15['c4'] = Kandidat::where('tahun','2015')->max('c4');
 
-        $max16['c1'] = Kandidat::where('tahun','2016')->max('c1');
-        $max16['c3'] = Kandidat::where('tahun','2016')->max('c3');
+        $min16['c1'] = Kandidat::where('tahun','2016')->min('c1');
         $min16['c2'] = Kandidat::where('tahun','2016')->min('c2');
-        $min16['c4'] = Kandidat::where('tahun','2016')->min('c4');
+        $max16['c3'] = Kandidat::where('tahun','2016')->max('c3');
+        $max16['c4'] = Kandidat::where('tahun','2016')->max('c4');
 
-        $max17['c1'] = Kandidat::where('tahun','2017')->max('c1');
-        $max17['c3'] = Kandidat::where('tahun','2017')->max('c3');
+        $min17['c1'] = Kandidat::where('tahun','2017')->min('c1');
         $min17['c2'] = Kandidat::where('tahun','2017')->min('c2');
-        $min17['c4'] = Kandidat::where('tahun','2017')->min('c4');
+        $max17['c3'] = Kandidat::where('tahun','2017')->max('c3');
+        $max17['c4'] = Kandidat::where('tahun','2017')->max('c4');
 
-        $max18['c1'] = Kandidat::where('tahun','2018')->max('c1');
-        $max18['c3'] = Kandidat::where('tahun','2018')->max('c3');
+        $min18['c1'] = Kandidat::where('tahun','2018')->min('c1');
         $min18['c2'] = Kandidat::where('tahun','2018')->min('c2');
-        $min18['c4'] = Kandidat::where('tahun','2018')->min('c4');
+        $max18['c3'] = Kandidat::where('tahun','2018')->max('c3');
+        $max18['c4'] = Kandidat::where('tahun','2018')->max('c4');
         $array = [];
         for ($i=0; $i <count($data) ; $i++) {
             if ($data[$i]->tahun == "2014") {
@@ -62,10 +62,10 @@ class SawController extends Controller
                     'kelurahan_id'  =>  $data[$i]->kelurahan_id,
                     'tahun'  =>  $data[$i]->tahun,
                     'bulan'  =>  $data[$i]->bulan,
-                    'c1'  =>  number_format(($data[$i]->c1)/($max14['c1']), 9),
-                    'c3'  =>  number_format(($data[$i]->c3)/($max14['c3']), 9),
+                    'c1'  =>  number_format(($min14['c1'])/($data[$i]->c1), 9),
                     'c2'  =>  number_format(($min14['c2'])/($data[$i]->c2), 9),
-                    'c4'  =>  number_format(($min14['c4'])/($data[$i]->c4), 9),
+                    'c3'  =>  number_format(($data[$i]->c3)/($max14['c3']), 9),
+                    'c4'  =>  number_format(($data[$i]->c4)/($max14['c4']), 9),
                 ];
             }
             if ($data[$i]->tahun == "2015") {
@@ -73,10 +73,10 @@ class SawController extends Controller
                     'kelurahan_id'  =>  $data[$i]->kelurahan_id,
                     'tahun'  =>  $data[$i]->tahun,
                     'bulan'  =>  $data[$i]->bulan,
-                    'c1'  =>  number_format(($data[$i]->c1)/($max15['c1']), 9),
+                    'c1'  =>  number_format(($min15['c1'])/($data[$i]->c1), 9),
+                    'c2'  =>  number_format(($min15['c2'])/($data[$i]->c2), 9),
                     'c3'  =>  number_format(($data[$i]->c3)/($max15['c3']), 9),
-                    'c2'  =>  number_format(($min15['c2']/$data[$i]->c2), 9),
-                    'c4'  =>  number_format(($min15['c4']/$data[$i]->c4), 9),
+                    'c4'  =>  number_format(($data[$i]->c4)/($max15['c4']), 9),
                 ];
             }
             if ($data[$i]->tahun == "2016") {
@@ -84,10 +84,10 @@ class SawController extends Controller
                     'kelurahan_id'  =>  $data[$i]->kelurahan_id,
                     'tahun'  =>  $data[$i]->tahun,
                     'bulan'  =>  $data[$i]->bulan,
-                    'c1'  =>  number_format(($data[$i]->c1)/($max16['c1']), 9),
-                    'c3'  =>  number_format(($data[$i]->c3)/($max16['c3']), 9),
+                    'c1'  =>  number_format(($min16['c1'])/($data[$i]->c1), 9),
                     'c2'  =>  number_format(($min16['c2'])/($data[$i]->c2), 9),
-                    'c4'  =>  number_format(($min16['c4'])/($data[$i]->c4), 9),
+                    'c3'  =>  number_format(($data[$i]->c3)/($max16['c3']), 9),
+                    'c4'  =>  number_format(($data[$i]->c4)/($max16['c4']), 9),
                 ];
             }
             if ($data[$i]->tahun == "2017") {
@@ -95,10 +95,10 @@ class SawController extends Controller
                     'kelurahan_id'  =>  $data[$i]->kelurahan_id,
                     'tahun'  =>  $data[$i]->tahun,
                     'bulan'  =>  $data[$i]->bulan,
-                    'c1'  =>  number_format(($data[$i]->c1)/($max17['c1']), 9),
-                    'c3'  =>  number_format(($data[$i]->c3)/($max17['c3']), 9),
+                    'c1'  =>  number_format(($min17['c1'])/($data[$i]->c1), 9),
                     'c2'  =>  number_format(($min17['c2'])/($data[$i]->c2), 9),
-                    'c4'  =>  number_format(($min17['c4'])/($data[$i]->c4), 9),
+                    'c3'  =>  number_format(($data[$i]->c3)/($max17['c3']), 9),
+                    'c4'  =>  number_format(($data[$i]->c4)/($max17['c4']), 9),
                 ];
             }
             if ($data[$i]->tahun == "2018") {
@@ -106,10 +106,10 @@ class SawController extends Controller
                     'kelurahan_id'  =>  $data[$i]->kelurahan_id,
                     'tahun'  =>  $data[$i]->tahun,
                     'bulan'  =>  $data[$i]->bulan,
-                    'c1'  =>  number_format(($data[$i]->c1)/($max18['c1']), 9),
-                    'c3'  =>  number_format(($data[$i]->c3)/($max18['c3']), 9),
+                    'c1'  =>  number_format(($min18['c1'])/($data[$i]->c1), 9),
                     'c2'  =>  number_format(($min18['c2'])/($data[$i]->c2), 9),
-                    'c4'  =>  number_format(($min18['c4'])/($data[$i]->c4), 9),
+                    'c3'  =>  number_format(($data[$i]->c3)/($max18['c3']), 9),
+                    'c4'  =>  number_format(($data[$i]->c4)/($max18['c4']), 9),
                 ];
             }
         }
@@ -172,20 +172,7 @@ class SawController extends Controller
         $data = Pembobotan::select('pembobotans.id','kelurahan_id','jumlah','tahun','kelurahan_id','bulan','c1','c2','c3','c4')->get();
         $array = [];
         for ($i=0; $i < count($data) ; $i++) {
-            if ($data[$i]->jumlah >0.0001 && $data[$i]->jumlah <= 0.23) {
-                $array[] = [
-                    'kelurahan_id'  =>  $data[$i]->kelurahan_id,
-                    'tahun'  =>  $data[$i]->tahun,
-                    'bulan'  =>  $data[$i]->bulan,
-                    'c1'  =>  $data[$i]->c1,
-                    'c2'  =>  $data[$i]->c2,
-                    'c3'  =>  $data[$i]->c3,
-                    'c4'  =>  $data[$i]->c4,
-                    'jumlah'  =>  $data[$i]->jumlah,
-                    'clustering'  =>  "Sangat Rendah",
-                ];
-            }
-            elseif ($data[$i]->jumlah >= 0.2301 && $data[$i]->jumlah <=0.46 ) {
+            if ($data[$i]->jumlah >0.256861677750551 && $data[$i]->jumlah <= 0.511206427470424) {
                 $array[] = [
                     'kelurahan_id'  =>  $data[$i]->kelurahan_id,
                     'tahun'  =>  $data[$i]->tahun,
@@ -198,7 +185,7 @@ class SawController extends Controller
                     'clustering'  =>  "Rendah",
                 ];
             }
-            elseif ($data[$i]->jumlah >= 0.4601 && $data[$i]->jumlah <=0.69 ) {
+            elseif ($data[$i]->jumlah >= 0.511206427470424 && $data[$i]->jumlah <=0.765551177190297 ) {
                 $array[] = [
                     'kelurahan_id'  =>  $data[$i]->kelurahan_id,
                     'tahun'  =>  $data[$i]->tahun,
@@ -208,10 +195,10 @@ class SawController extends Controller
                     'c3'  =>  $data[$i]->c3,
                     'c4'  =>  $data[$i]->c4,
                     'jumlah'  =>  $data[$i]->jumlah,
-                    'clustering'  =>  "Sedang",
+                    'clustering'  =>  "Menengah",
                 ];
             }
-            elseif ($data[$i]->jumlah >= 0.6901 && $data[$i]->jumlah <=0.92 ) {
+            elseif ($data[$i]->jumlah >= 0.765551177190297 && $data[$i]->jumlah <=1.01989592691017 ) {
                 $array[] = [
                     'kelurahan_id'  =>  $data[$i]->kelurahan_id,
                     'tahun'  =>  $data[$i]->tahun,
@@ -224,19 +211,32 @@ class SawController extends Controller
                     'clustering'  =>  "Tinggi",
                 ];
             }
-            elseif ($data[$i]->jumlah >= 0.9201 && $data[$i]->jumlah <=1 ) {
-                $array[] = [
-                    'kelurahan_id'  =>  $data[$i]->kelurahan_id,
-                    'tahun'  =>  $data[$i]->tahun,
-                    'bulan'  =>  $data[$i]->bulan,
-                    'c1'  =>  $data[$i]->c1,
-                    'c2'  =>  $data[$i]->c2,
-                    'c3'  =>  $data[$i]->c3,
-                    'c4'  =>  $data[$i]->c4,
-                    'jumlah'  =>  $data[$i]->jumlah,
-                    'clustering'  =>  "Sangat Tinggi",
-                ];
-            }
+            // elseif ($data[$i]->jumlah >= 0.6901 && $data[$i]->jumlah <=0.92 ) {
+            //     $array[] = [
+            //         'kelurahan_id'  =>  $data[$i]->kelurahan_id,
+            //         'tahun'  =>  $data[$i]->tahun,
+            //         'bulan'  =>  $data[$i]->bulan,
+            //         'c1'  =>  $data[$i]->c1,
+            //         'c2'  =>  $data[$i]->c2,
+            //         'c3'  =>  $data[$i]->c3,
+            //         'c4'  =>  $data[$i]->c4,
+            //         'jumlah'  =>  $data[$i]->jumlah,
+            //         'clustering'  =>  "Tinggi",
+            //     ];
+            // }
+            // elseif ($data[$i]->jumlah >= 0.9201 && $data[$i]->jumlah <=1 ) {
+            //     $array[] = [
+            //         'kelurahan_id'  =>  $data[$i]->kelurahan_id,
+            //         'tahun'  =>  $data[$i]->tahun,
+            //         'bulan'  =>  $data[$i]->bulan,
+            //         'c1'  =>  $data[$i]->c1,
+            //         'c2'  =>  $data[$i]->c2,
+            //         'c3'  =>  $data[$i]->c3,
+            //         'c4'  =>  $data[$i]->c4,
+            //         'jumlah'  =>  $data[$i]->jumlah,
+            //         'clustering'  =>  "Sangat Tinggi",
+            //     ];
+            // }
         }
 
         Clustering::truncate();

@@ -67,9 +67,10 @@ class FrontController extends Controller
                             ->get();
         $kecamatans = Kecamatan::all();
         $grafik_saw = Clustering::select('tahun','clustering',DB::raw("COUNT(clustering) as jumlah"))
-                        ->where('clustering','Sangat Tinggi')
+                        ->where('clustering','Tinggi')
                         ->groupBy('clustering')->groupBy('tahun')
                         ->get();
+                        // return $grafik_saw;
         $grafik_linear = LinearFuzzy::select('tahun',DB::raw("MAX(nilai_x) as max"))
                         ->groupBy('clustering')->groupBy('tahun')
                         ->get();

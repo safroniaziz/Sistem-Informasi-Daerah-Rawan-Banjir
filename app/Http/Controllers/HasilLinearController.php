@@ -69,7 +69,7 @@ class HasilLinearController extends Controller
 
         for ($i=0; $i <count($data2) ; $i++) {
             HasilLinear::where('id',$data2[$i]->id)->update([
-                'nilai_b'   =>  ($data[$i]->totalxy - $data2[$i]->nilai_c)/10,
+                'nilai_b'   =>  ($data[$i]->totalxy)/10,
             ]);
             // $nilai_b    =   $data[$i]->totalxy - $data2[$i]->nilai_c;
         }

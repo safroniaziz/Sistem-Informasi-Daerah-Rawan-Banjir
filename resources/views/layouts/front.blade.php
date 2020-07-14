@@ -107,7 +107,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Grafik Urutan Cluster SAW Sangat Tinggi Terbanyak  <br> (TAHUN 2014-2018)</h2>
+          <h2>Grafik Urutan Cluster SAW Cluster Tinggi Terbanyak  <br> (TAHUN 2014-2018)</h2>
           <p>Grafik dibawah hanya menampilkan hasil cluster SAW terbanyak setiap tahunnya, jika ingin melihat lebih detail, silagkan klik menu Grafik SAW di Navigasi Menu</p>
         </div>
 

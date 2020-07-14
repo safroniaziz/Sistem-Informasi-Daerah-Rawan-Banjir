@@ -80,7 +80,7 @@
                         <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header modal-header-danger">
-                                <p style="font-size:15px;" class="modal-title" id="exampleModalLabel"><i class="fa fa-user"></i>&nbsp;Form Ubah Bobot Parameter</p>
+                                <p style="font-size:15px;" class="modal-title" id="exampleModalLabel"><i class="fa fa-user"></i>&nbsp;Form Ubah Skor Parameter</p>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -90,9 +90,9 @@
                                     {{ csrf_field() }} {{ method_field("PATCH") }}
                                     <input type="hidden" name="id" id="id">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Bobot Parameter</label>
+                                        <label for="exampleInputEmail1">Skor Parameter</label>
                                         <input type="text" class="form-control" name="nilai_probabilitas" id="nilai_probabilitas">
-                                        <small id="emailHelp" class="form-text text-muted"><i>bobot harus diisi !!</i></small>
+                                        <small id="emailHelp" class="form-text text-muted"><i>skor harus diisi !!</i></small>
                                     </div>
                                 </form>
                             </div>

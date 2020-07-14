@@ -62,7 +62,7 @@
                                     <th>C2 (Curah Hujan)</th>
                                     <th>C3 (Kelas Tinggi Tanah)</th>
                                     <th>C4 (Bantaran Sungai)</th>
-                                    <th>Jumlah</th>
+                                    <th>C1+C2+C3+C4</th>
                                     <th>Clustering</th>
                                 </tr>
                             </thead>
@@ -72,16 +72,14 @@
                                 @endphp
                                 @foreach ($clusterings as $clustering)
                                     <tr
-                                        @if ($clustering->clustering == "Sangat Tinggi")
+                                        @if ($clustering->clustering == "Tinggi")
                                             style="background:#f52c11; color:white;"
-                                            @elseif($clustering->clustering == "Tinggi")
-                                            style="background:#ed891f; color:white;"
-                                            @elseif($clustering->clustering == "Sedang")
-                                            style="background:#f9fc14;"
+                                            @elseif($clustering->clustering == "Menengah")
+                                            style="background:yellow;"
                                             @elseif($clustering->clustering == "Rendah")
                                             style="background:#0ff24b;"
-                                            @elseif($clustering->clustering == "Sangat Rendah")
-                                            style="background:#3c7d4d;"
+                                            <!-- @elseif($clustering->clustering == "Sangat Rendah")
+                                            style="background:#3c7d4d;" --> --> -->
                                         @endif
                                     >
                                         <td> {{ $no++ }} </td>
