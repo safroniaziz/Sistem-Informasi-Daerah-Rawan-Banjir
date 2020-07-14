@@ -391,18 +391,8 @@
                                 fillOpacity: 0.35
                             });
                         <?php 
-                    } elseif($array[$i]['clustering'] == "Sangat Rendah") {?>
-                        var array = new google.maps.Polygon({
-                                paths: pasanganTitikarraya,
-                                strokeColor: '#3c7d4d',
-                                strokeOpacity: 0.8,
-                                strokeWeight: 3,
-                                fillColor: '#3c7d4d',
-                                fillOpacity: 0.35
-                            });
-                        <?php
-                    }
-                    elseif($array[$i]['clustering'] == "Sedang") {?>
+                        }
+                    elseif($array[$i]['clustering'] == "Menengah") {?>
                         var array = new google.maps.Polygon({
                                 paths: pasanganTitikarraya,
                                 strokeColor: '#f9fc14',
@@ -416,22 +406,10 @@
                     elseif($array[$i]['clustering'] == "Tinggi") {?>
                         var array = new google.maps.Polygon({
                                 paths: pasanganTitikarraya,
-                                strokeColor: '#ed891f',
+                                strokeColor: 'red',
                                 strokeOpacity: 0.8,
                                 strokeWeight: 3,
-                                fillColor: '#ed891f',
-                                fillOpacity: 0.35
-                            });
-                        <?php
-                    }
-
-                    elseif($array[$i]['clustering'] == "Sangat Tinggi") {?>
-                        var array = new google.maps.Polygon({
-                                paths: pasanganTitikarraya,
-                                strokeColor: '#f52c11',
-                                strokeOpacity: 0.8,
-                                strokeWeight: 3,
-                                fillColor: '#f52c11',
+                                fillColor: 'red',
                                 fillOpacity: 0.35
                             });
                         <?php
